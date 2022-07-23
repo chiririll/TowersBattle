@@ -1,0 +1,216 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+15-arm_l_1
+  rotate: 180
+  xy: 1766, 25
+  size: 131, 156
+  orig: 131, 156
+  offset: 0, 0
+  index: -1
+15-arm_l_2
+  rotate: 180
+  xy: 270, 289
+  size: 93, 116
+  orig: 93, 116
+  offset: 0, 0
+  index: -1
+15-arm_r
+  rotate: false
+  xy: 1357, 22
+  size: 155, 170
+  orig: 155, 170
+  offset: 0, 0
+  index: -1
+15-b-arm_l
+  rotate: true
+  xy: 1502, 116
+  size: 168, 171
+  orig: 168, 171
+  offset: 0, 0
+  index: -1
+15-b-arm_r
+  rotate: false
+  xy: 1388, 459
+  size: 155, 169
+  orig: 155, 169
+  offset: 0, 0
+  index: -1
+15-b-cloak-1
+  rotate: false
+  xy: 1203, 422
+  size: 189, 229
+  orig: 189, 229
+  offset: 0, 0
+  index: -1
+15-b-cloak-2
+  rotate: false
+  xy: 1312, 228
+  size: 189, 229
+  orig: 189, 229
+  offset: 0, 0
+  index: -1
+15-b-collar-1
+  rotate: true
+  xy: 1057, 23
+  size: 273, 141
+  orig: 273, 141
+  offset: 0, 0
+  index: -1
+15-b-collar-2
+  rotate: 270
+  xy: 1098, 317
+  size: 273, 141
+  orig: 273, 141
+  offset: 0, 0
+  index: -1
+15-b-h-body
+  rotate: false
+  xy: 266, 379
+  size: 263, 272
+  orig: 263, 272
+  offset: 0, 0
+  index: -1
+15-b-h-head
+  rotate: false
+  xy: 927, 392
+  size: 191, 250
+  orig: 191, 250
+  offset: 0, 0
+  index: -1
+15-b-h-tail
+  rotate: 270
+  xy: 1594, 3
+  size: 115, 152
+  orig: 115, 152
+  offset: 0, 0
+  index: -1
+15-b-head
+  rotate: true
+  xy: 531, 414
+  size: 237, 216
+  orig: 237, 216
+  offset: 0, 0
+  index: -1
+15-b-legs
+  rotate: 270
+  xy: 1592, 358
+  size: 225, 149
+  orig: 225, 149
+  offset: 0, 0
+  index: -1
+15-b-mask
+  rotate: false
+  xy: 1799, 183
+  size: 98, 151
+  orig: 98, 151
+  offset: 0, 0
+  index: -1
+15-body
+  rotate: false
+  xy: 749, 395
+  size: 176, 198
+  orig: 176, 198
+  offset: 0, 0
+  index: -1
+15-collar-1
+  rotate: false
+  xy: 163, 15
+  size: 283, 165
+  orig: 283, 165
+  offset: 0, 0
+  index: -1
+15-collar-2
+  rotate: 270
+  xy: 677, 111
+  size: 283, 165
+  orig: 283, 165
+  offset: 0, 0
+  index: -1
+15-h-body
+  rotate: false
+  xy: 2, 380
+  size: 263, 272
+  orig: 263, 272
+  offset: 0, 0
+  index: -1
+15-h-head
+  rotate: 180
+  xy: 1171, 66
+  size: 184, 218
+  orig: 184, 218
+  offset: 0, 0
+  index: -1
+15-h-tail
+  rotate: 180
+  xy: 1810, 498
+  size: 116, 154
+  orig: 116, 154
+  offset: 0, 0
+  index: -1
+15-head
+  rotate: false
+  xy: 448, 61
+  size: 238, 200
+  orig: 238, 200
+  offset: 0, 0
+  index: -1
+15-legs
+  rotate: 270
+  xy: 1492, 287
+  size: 225, 149
+  orig: 225, 149
+  offset: 0, 0
+  index: -1
+15-mask
+  rotate: 180
+  xy: 2, 187
+  size: 267, 192
+  orig: 267, 192
+  offset: 0, 0
+  index: -1
+15-rope
+  rotate: 270
+  xy: 2, 30
+  size: 152, 176
+  orig: 152, 176
+  offset: 0, 0
+  index: -1
+15-shd
+  rotate: 270
+  xy: 1671, 120
+  size: 238, 122
+  orig: 238, 122
+  offset: 0, 0
+  index: -1
+15-tail-1
+  rotate: 270
+  xy: 737, 29
+  size: 211, 236
+  orig: 211, 236
+  offset: 0, 0
+  index: -1
+15-tail-2
+  rotate: 180
+  xy: 844, 154
+  size: 211, 236
+  orig: 211, 236
+  offset: 0, 0
+  index: -1
+15-weapon
+  rotate: false
+  xy: 73, 85
+  size: 630, 327
+  orig: 630, 327
+  offset: 0, 0
+  index: -1
+melee_fx_1
+  rotate: 270
+  xy: 1723, 363
+  size: 207, 144
+  orig: 207, 144
+  offset: 0, 0
+  index: -1

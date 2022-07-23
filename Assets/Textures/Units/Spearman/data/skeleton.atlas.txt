@@ -1,0 +1,181 @@
+
+skeleton.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2-arm_l_1
+  rotate: true
+  xy: 2, 7
+  size: 38, 47
+  orig: 38, 47
+  offset: 0, 0
+  index: -1
+2-arm_l_2
+  rotate: true
+  xy: 1082, 185
+  size: 69, 60
+  orig: 69, 60
+  offset: 0, 0
+  index: -1
+2-arm_r-1
+  rotate: false
+  xy: 825, 156
+  size: 90, 98
+  orig: 90, 98
+  offset: 0, 0
+  index: -1
+2-arm_r-2
+  rotate: false
+  xy: 917, 156
+  size: 90, 98
+  orig: 90, 98
+  offset: 0, 0
+  index: -1
+2-b-arm_l_1-1
+  rotate: false
+  xy: 1009, 174
+  size: 71, 80
+  orig: 71, 80
+  offset: 0, 0
+  index: -1
+2-b-arm_l_1-2
+  rotate: true
+  xy: 351, 4
+  size: 92, 81
+  orig: 92, 81
+  offset: 0, 0
+  index: -1
+2-b-arm_l_2
+  rotate: true
+  xy: 51, 8
+  size: 37, 48
+  orig: 37, 48
+  offset: 0, 0
+  index: -1
+2-b-arm_r-1
+  rotate: false
+  xy: 159, 2
+  size: 94, 94
+  orig: 94, 94
+  offset: 0, 0
+  index: -1
+2-b-arm_r-2
+  rotate: false
+  xy: 255, 2
+  size: 94, 94
+  orig: 94, 94
+  offset: 0, 0
+  index: -1
+2-b-body-1
+  rotate: false
+  xy: 642, 25
+  size: 108, 110
+  orig: 108, 110
+  offset: 0, 0
+  index: -1
+2-b-body-2
+  rotate: false
+  xy: 715, 144
+  size: 108, 110
+  orig: 108, 110
+  offset: 0, 0
+  index: -1
+2-b-head
+  rotate: true
+  xy: 283, 98
+  size: 156, 90
+  orig: 156, 90
+  offset: 0, 0
+  index: -1
+2-b-helmet_1
+  rotate: true
+  xy: 549, 11
+  size: 119, 91
+  orig: 119, 91
+  offset: 0, 0
+  index: -1
+2-b-helmet_2
+  rotate: true
+  xy: 1082, 151
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+2-body-1
+  rotate: false
+  xy: 425, 129
+  size: 113, 125
+  orig: 113, 125
+  offset: 0, 0
+  index: -1
+2-body-2
+  rotate: false
+  xy: 434, 2
+  size: 113, 125
+  orig: 113, 125
+  offset: 0, 0
+  index: -1
+2-head
+  rotate: true
+  xy: 148, 98
+  size: 156, 133
+  orig: 156, 133
+  offset: 0, 0
+  index: -1
+2-helmet_1
+  rotate: true
+  xy: 540, 132
+  size: 122, 84
+  orig: 122, 84
+  offset: 0, 0
+  index: -1
+2-helmet_2
+  rotate: true
+  xy: 101, 13
+  size: 32, 56
+  orig: 32, 56
+  offset: 0, 0
+  index: -1
+2-legs
+  rotate: true
+  xy: 626, 137
+  size: 117, 87
+  orig: 117, 87
+  offset: 0, 0
+  index: -1
+2-shd
+  rotate: true
+  xy: 375, 110
+  size: 144, 48
+  orig: 144, 48
+  offset: 0, 0
+  index: -1
+2-strip-1
+  rotate: false
+  xy: 1083, 93
+  size: 49, 56
+  orig: 49, 56
+  offset: 0, 0
+  index: -1
+2-strip-2
+  rotate: false
+  xy: 1083, 35
+  size: 49, 56
+  orig: 49, 56
+  offset: 0, 0
+  index: -1
+2-weapon
+  rotate: false
+  xy: 752, 33
+  size: 329, 109
+  orig: 329, 109
+  offset: 0, 0
+  index: -1
+melee_fx_1
+  rotate: true
+  xy: 2, 47
+  size: 207, 144
+  orig: 207, 144
+  offset: 0, 0
+  index: -1

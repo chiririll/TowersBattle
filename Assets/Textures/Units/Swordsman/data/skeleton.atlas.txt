@@ -1,0 +1,153 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1-arm_l
+  rotate: false
+  xy: 568, 124
+  size: 163, 157
+  orig: 163, 157
+  offset: 0, 0
+  index: -1
+1-arm_r
+  rotate: false
+  xy: 733, 103
+  size: 137, 178
+  orig: 137, 178
+  offset: 0, 0
+  index: -1
+1-arm_r_color-1
+  rotate: false
+  xy: 372, 111
+  size: 86, 36
+  orig: 86, 36
+  offset: 0, 0
+  index: -1
+1-arm_r_color-2
+  rotate: false
+  xy: 720, 560
+  size: 86, 36
+  orig: 86, 36
+  offset: 0, 0
+  index: -1
+1-b-arm_l
+  rotate: false
+  xy: 182, 20
+  size: 153, 128
+  orig: 153, 128
+  offset: 0, 0
+  index: -1
+1-b-arm_r
+  rotate: true
+  xy: 2, 128
+  size: 139, 178
+  orig: 139, 178
+  offset: 0, 0
+  index: -1
+1-b-arm_r_color-1
+  rotate: false
+  xy: 224, 432
+  size: 82, 32
+  orig: 82, 32
+  offset: 0, 0
+  index: -1
+1-b-arm_r_color-2
+  rotate: false
+  xy: 720, 598
+  size: 82, 32
+  orig: 82, 32
+  offset: 0, 0
+  index: -1
+1-b-belt-1
+  rotate: false
+  xy: 2, 35
+  size: 176, 91
+  orig: 176, 91
+  offset: 0, 0
+  index: -1
+1-b-belt-2
+  rotate: false
+  xy: 545, 31
+  size: 176, 91
+  orig: 176, 91
+  offset: 0, 0
+  index: -1
+1-b-body
+  rotate: false
+  xy: 723, 29
+  size: 152, 72
+  orig: 152, 72
+  offset: 0, 0
+  index: -1
+1-b-hair
+  rotate: true
+  xy: 502, 474
+  size: 232, 216
+  orig: 232, 216
+  offset: 0, 0
+  index: -1
+1-b-head
+  rotate: true
+  xy: 249, 432
+  size: 275, 251
+  orig: 275, 251
+  offset: 0, 0
+  index: -1
+1-b-legs
+  rotate: false
+  xy: 366, 149
+  size: 200, 132
+  orig: 200, 132
+  offset: 0, 0
+  index: -1
+1-body-1
+  rotate: false
+  xy: 184, 150
+  size: 180, 151
+  orig: 180, 151
+  offset: 0, 0
+  index: -1
+1-hair
+  rotate: true
+  xy: 553, 283
+  size: 189, 211
+  orig: 189, 211
+  offset: 0, 0
+  index: -1
+1-head
+  rotate: false
+  xy: 2, 429
+  size: 246, 277
+  orig: 246, 277
+  offset: 0, 0
+  index: -1
+1-legs
+  rotate: false
+  xy: 2, 269
+  size: 196, 158
+  orig: 196, 158
+  offset: 0, 0
+  index: -1
+1-shd
+  rotate: true
+  xy: 766, 283
+  size: 275, 103
+  orig: 275, 103
+  offset: 0, 0
+  index: -1
+1-weapon
+  rotate: false
+  xy: 207, 303
+  size: 344, 127
+  orig: 344, 127
+  offset: 0, 0
+  index: -1
+melee_fx_1
+  rotate: false
+  xy: 337, 3
+  size: 207, 144
+  orig: 207, 144
+  offset: 0, 0
+  index: -1

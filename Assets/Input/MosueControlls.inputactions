@@ -1,0 +1,54 @@
+{
+    "name": "MosueControlls",
+    "maps": [
+        {
+            "name": "Mouse",
+            "id": "3d5c9c4a-a7d7-423d-a82d-0502e13e7e08",
+            "actions": [
+                {
+                    "name": "Pan",
+                    "type": "PassThrough",
+                    "id": "265e388b-894b-4edb-bb4c-7c1ee565e3a5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "PassThrough",
+                    "id": "d6fd4d9b-6beb-48f6-8d58-c64b8e502c81",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2dcb6bea-0b61-463a-906c-67b237f80717",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23eee07f-0b49-4145-bcd5-f6e022db7b00",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

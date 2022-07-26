@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "0683425176104462",
+    "m_SelectedDeviceId": "192.168.243.89:5555",
     "m_SelectedPackage": {
-        "deviceId": "0683425176104462",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 19876,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,18 @@
             "deviceId": "0683425176104462",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 19876,
+            "exited": false
+        },
+        {
+            "deviceId": "192.168.243.89:5555",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 30895,
+            "exited": true
+        },
+        {
+            "deviceId": "192.168.243.89:5555",
+            "name": "com.unity3d.mobileremote",
+            "processId": 31186,
             "exited": false
         }
     ],

@@ -1,4 +1,4 @@
-// <copyright file="GameManager.cs" company="PlaceholderCompany">
+﻿// <copyright file="GameManager.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -10,12 +10,10 @@ namespace Assets.Scripts.Managers
     {
         private void Start()
         {
-
         }
 
         private void Update()
         {
-
         }
     }
 }

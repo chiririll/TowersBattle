@@ -1,0 +1,3 @@
+[SpecFlow.Plus.Runner.AssemblyHooks.cs]
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.CS1591.severity = none

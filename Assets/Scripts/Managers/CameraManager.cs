@@ -1,3 +1,7 @@
+﻿// <copyright file="CameraManager.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace Assets.Scripts.Managers
 {
     using UnityEngine;
@@ -7,13 +11,11 @@ namespace Assets.Scripts.Managers
         // Start is called before the first frame update
         private void Start()
         {
-
         }
 
         // Update is called once per frame
         private void Update()
         {
-
         }
     }
 }

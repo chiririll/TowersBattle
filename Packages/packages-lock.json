@@ -5,14 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9fb9297428934efd418fbccc8115f596a6a7cd9d"
+      "hash": "76e7556a0363106abb75cbad4cf4267a98ebdebf"
     },
     "com.mathijsbakker.extenject": {
       "version": "https://github.com/chiririll/TowersBattle.git?path=Zenject#dependencies",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9fb9297428934efd418fbccc8115f596a6a7cd9d"
+      "hash": "76e7556a0363106abb75cbad4cf4267a98ebdebf"
     },
     "com.unity.2d.animation": {
       "version": "7.0.6",

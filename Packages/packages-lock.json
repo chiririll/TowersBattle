@@ -1,27 +1,18 @@
 {
   "dependencies": {
-    "com.esotericsoftware.spine.spine-csharp": {
-      "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "246e5a039b5273a6f2853e6e3cf02983680a4d0b"
-    },
     "com.esotericsoftware.spine.spine-unity": {
-      "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Assets/Spine#4.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.esotericsoftware.spine.spine-csharp": "4.1.0"
-      },
-      "hash": "246e5a039b5273a6f2853e6e3cf02983680a4d0b"
-    },
-    "com.svermeulen.extenject": {
-      "version": "https://github.com/modesttree/Zenject.git?path=UnityProject/Assets/Plugins/Zenject#9.2.0",
+      "version": "https://github.com/chiririll/TowersBattle.git?path=Spine#dependencies",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c2e33500a84f9408a809deca2af2c55494ab2482"
+      "hash": "9fb9297428934efd418fbccc8115f596a6a7cd9d"
+    },
+    "com.mathijsbakker.extenject": {
+      "version": "https://github.com/chiririll/TowersBattle.git?path=Zenject#dependencies",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9fb9297428934efd418fbccc8115f596a6a7cd9d"
     },
     "com.unity.2d.animation": {
       "version": "7.0.6",

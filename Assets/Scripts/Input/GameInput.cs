@@ -27,80 +27,27 @@ namespace TowersBattle.Input
     ""maps"": [
         {
             ""name"": ""GameActions"",
-            ""id"": ""3d5c9c4a-a7d7-423d-a82d-0502e13e7e08"",
+            ""id"": ""b4ad5fd0-acc7-4b7b-aa82-8796f76e2fc2"",
             ""actions"": [
                 {
-                    ""name"": ""CameraMove"",
+                    ""name"": ""CameraMovement"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""265e388b-894b-4edb-bb4c-7c1ee565e3a5"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""id"": ""fcea2aa3-68ff-4eb4-8ccd-398d7492fff8"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CameraZoom"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""d6fd4d9b-6beb-48f6-8d58-c64b8e502c81"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""2dcb6bea-0b61-463a-906c-67b237f80717"",
-                    ""path"": ""<Touchscreen>/position"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Mouse"",
-                    ""id"": ""59fc1019-e7ae-40d0-9e3f-a3bf32abb466"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""10b46e7b-8e78-455d-98d0-f8e73b780493"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""951ef675-e6ca-4e5e-af63-7db754bd8edb"",
+                    ""id"": ""1befee67-bc15-48c9-83b5-7bc68ba3a135"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""23eee07f-0b49-4145-bcd5-f6e022db7b00"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
-                    ""action"": ""CameraZoom"",
+                    ""action"": ""CameraMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -111,8 +58,7 @@ namespace TowersBattle.Input
 }");
             // GameActions
             m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
-            m_GameActions_CameraMove = m_GameActions.FindAction("CameraMove", throwIfNotFound: true);
-            m_GameActions_CameraZoom = m_GameActions.FindAction("CameraZoom", throwIfNotFound: true);
+            m_GameActions_CameraMovement = m_GameActions.FindAction("CameraMovement", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -172,14 +118,12 @@ namespace TowersBattle.Input
         // GameActions
         private readonly InputActionMap m_GameActions;
         private IGameActionsActions m_GameActionsActionsCallbackInterface;
-        private readonly InputAction m_GameActions_CameraMove;
-        private readonly InputAction m_GameActions_CameraZoom;
+        private readonly InputAction m_GameActions_CameraMovement;
         public struct GameActionsActions
         {
             private @GameInput m_Wrapper;
             public GameActionsActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-            public InputAction @CameraMove => m_Wrapper.m_GameActions_CameraMove;
-            public InputAction @CameraZoom => m_Wrapper.m_GameActions_CameraZoom;
+            public InputAction @CameraMovement => m_Wrapper.m_GameActions_CameraMovement;
             public InputActionMap Get() { return m_Wrapper.m_GameActions; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -189,30 +133,23 @@ namespace TowersBattle.Input
             {
                 if (m_Wrapper.m_GameActionsActionsCallbackInterface != null)
                 {
-                    @CameraMove.started -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMove;
-                    @CameraMove.performed -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMove;
-                    @CameraMove.canceled -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMove;
-                    @CameraZoom.started -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraZoom;
-                    @CameraZoom.performed -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraZoom;
-                    @CameraZoom.canceled -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraZoom;
+                    @CameraMovement.started -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMovement;
+                    @CameraMovement.performed -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMovement;
+                    @CameraMovement.canceled -= m_Wrapper.m_GameActionsActionsCallbackInterface.OnCameraMovement;
                 }
                 m_Wrapper.m_GameActionsActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @CameraMove.started += instance.OnCameraMove;
-                    @CameraMove.performed += instance.OnCameraMove;
-                    @CameraMove.canceled += instance.OnCameraMove;
-                    @CameraZoom.started += instance.OnCameraZoom;
-                    @CameraZoom.performed += instance.OnCameraZoom;
-                    @CameraZoom.canceled += instance.OnCameraZoom;
+                    @CameraMovement.started += instance.OnCameraMovement;
+                    @CameraMovement.performed += instance.OnCameraMovement;
+                    @CameraMovement.canceled += instance.OnCameraMovement;
                 }
             }
         }
         public GameActionsActions @GameActions => new GameActionsActions(this);
         public interface IGameActionsActions
         {
-            void OnCameraMove(InputAction.CallbackContext context);
-            void OnCameraZoom(InputAction.CallbackContext context);
+            void OnCameraMovement(InputAction.CallbackContext context);
         }
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
+  m_Name: Horseman
+  m_EditorClassIdentifier: 
+  name: Horseman
+  skeleton: {fileID: 11400000, guid: 43c88ee5b24219d448b01d530d6f8e91, type: 2}
+  dominatingTarget: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+  dominationFactor: 1.3
+  maxHP: 150
+  attackSpeed: 1
+  damage: 40
+  attackRange: 10
+  speed: 5

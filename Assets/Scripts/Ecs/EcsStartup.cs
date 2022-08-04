@@ -12,31 +12,38 @@ namespace TowersBattle.Ecs
         private EcsWorld world;
         private EcsSystems systems;
 
-        private SpawnTable spawnTable;
-
+        // Injections
+        [SerializeField] private SpawnTable spawnTable;
+        [SerializeField] private SceneContext sceneContext;
 
         /// <summary>
-        /// TODO
+        /// Method for adding systems to ecs world
         /// </summary>
         private void AddSystems()
         {
-
+            systems
+                .Add(new PathFollowSystem())
+                .Add(new AnimationSystem())
+                .Add(new TestInitSystem());
         }   
         
         /// <summary>
-        /// TODO
+        /// Method for adding injections into components
         /// </summary>
         private void AddInjections()
         {
-            
+            systems
+                .Inject(spawnTable)
+                .Inject(sceneContext);
         }
 
         /// <summary>
-        /// TODO
+        /// Method for adding one frame components (e.g. events) to ecs world
         /// </summary>
         private void AddOneframe()
         {
-
+            systems
+                .OneFrame<UnitStateChangedEvent>();
         }
 
         private void Start()
@@ -46,7 +53,7 @@ namespace TowersBattle.Ecs
 
             AddInjections();
             AddSystems();
-            // AddOneframe();
+            AddOneframe();
 
             systems.Init();
         }

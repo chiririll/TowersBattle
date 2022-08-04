@@ -8,7 +8,7 @@ namespace TowersBattle.Data
     {
         [Header("Common")]
         public new string name;
-        public SkeletonDataAsset skeleton;
+        public GameObject prefab;
 
         [Header("Preferences")]
         public Unit dominatingTarget;

@@ -6,8 +6,8 @@ namespace TowersBattle.Ecs
     /// <summary>
     /// TODO
     /// </summary>
-    public class HealthSystem : IEcsRunSystem
-    {
+    public class UnitSpawnSystem : IEcsRunSystem 
+    {	
         public void Run()
         {
 

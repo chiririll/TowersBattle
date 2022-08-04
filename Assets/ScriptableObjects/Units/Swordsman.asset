@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Swordsman
   m_EditorClassIdentifier: 
   name: Swordsman
-  skeleton: {fileID: 11400000, guid: 43c88ee5b24219d448b01d530d6f8e91, type: 2}
+  prefab: {fileID: 107946658026537761, guid: bf679717f583f6847ba7f95442e33a89, type: 3}
   dominatingTarget: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
   dominationFactor: 2
   maxHP: 80
   attackSpeed: 0.8
   damage: 20
   attackRange: 0
-  speed: 3
+  speed: 2

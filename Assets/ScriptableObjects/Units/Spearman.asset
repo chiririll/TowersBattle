@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Spearman
   m_EditorClassIdentifier: 
   name: Spearman
-  skeleton: {fileID: 0}
+  prefab: {fileID: 5552564250926595457, guid: d74c9077ac6c0e74e9a7167445f4abf9, type: 3}
   dominatingTarget: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
   dominationFactor: 1.8
   maxHP: 100
   attackSpeed: 2
   damage: 60
   attackRange: 0
-  speed: 2
+  speed: 1.5

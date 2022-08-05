@@ -1,6 +1,6 @@
 namespace TowersBattle.Ecs
 {
-    public struct BlueTeamTag
+    public struct EnemyTag
     {
     }
 }

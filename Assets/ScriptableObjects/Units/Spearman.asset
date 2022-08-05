@@ -13,11 +13,37 @@ MonoBehaviour:
   m_Name: Spearman
   m_EditorClassIdentifier: 
   name: Spearman
-  prefab: {fileID: 5552564250926595457, guid: d74c9077ac6c0e74e9a7167445f4abf9, type: 3}
+  prefab: {fileID: 2199590883760040824, guid: d74c9077ac6c0e74e9a7167445f4abf9, type: 3}
   dominatingTarget: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
   dominationFactor: 1.8
-  maxHP: 100
-  attackSpeed: 2
-  damage: 60
-  attackRange: 0
+  maxHP: 120
+  attackSpeed: 0.8
+  attackRange: 6
+  damageType: 1
+  meleeDmgData:
+    damage: 0
+  rangedDmgData:
+    projectile: {fileID: 0}
+    speed: 5
+    damage: 80
+  moveable: 1
   speed: 1.5
+  animations:
+    animations:
+    - state: 0
+      name: idle
+      loop: 1
+      clipsCount: 2
+    - state: 1
+      name: run
+      loop: 1
+      clipsCount: 2
+    - state: 2
+      name: attack
+      loop: 1
+      clipsCount: 2
+    - state: 3
+      name: death
+      loop: 0
+      clipsCount: 2
+    animator: {fileID: 0}

@@ -1,6 +1,6 @@
 namespace TowersBattle.Ecs
 {
-    public struct RedTeamTag
-    {
+    public struct DeadTag
+    {	
     }
 }

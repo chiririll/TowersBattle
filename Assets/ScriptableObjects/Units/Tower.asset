@@ -10,41 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
-  m_Name: Swordsman
+  m_Name: Tower
   m_EditorClassIdentifier: 
-  name: Swordsman
-  prefab: {fileID: 2667276558233327, guid: bf679717f583f6847ba7f95442e33a89, type: 3}
-  dominatingTarget: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
-  dominationFactor: 2
-  maxHP: 80
-  attackSpeed: 4
-  attackRange: 1
-  damageType: 0
+  name: Tower
+  prefab: {fileID: 6537577764801845707, guid: feb1989a87d58d249aaa5b31339d71c2, type: 3}
+  dominatingTarget: {fileID: 0}
+  dominationFactor: 1
+  maxHP: 500
+  attackSpeed: 1
+  attackRange: 10
+  damageType: 1
   meleeDmgData:
-    damage: 10
+    damage: 0
   rangedDmgData:
     projectile: {fileID: 0}
-    speed: 0
-    damage: 0
-  moveable: 1
-  speed: 2
-  healthBar: {fileID: 0}
+    speed: 10
+    damage: 20
+  moveable: 0
+  speed: 0
   animations:
     animations:
     - state: 0
       name: idle
       loop: 1
-      clipsCount: 2
-    - state: 1
-      name: run
-      loop: 1
-      clipsCount: 2
+      clipsCount: 4
     - state: 2
       name: attack
       loop: 1
-      clipsCount: 2
+      clipsCount: 4
     - state: 3
       name: death
       loop: 0
-      clipsCount: 2
+      clipsCount: 1
     animator: {fileID: 0}

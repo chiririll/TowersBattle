@@ -10,21 +10,28 @@ namespace TowersBattle.Ecs
     public class EcsStartup : MonoBehaviour 
     {
         private EcsWorld world;
-        private EcsSystems systems;
+        private EcsSystems updateSystems;
+        private EcsSystems fixedUpdateSystems;
 
         // Injections
         [SerializeField] private SpawnTable spawnTable;
         [SerializeField] private SceneContext sceneContext;
 
         /// <summary>
-        /// Method for adding systems to ecs world
+        /// Method for adding updateSystems to ecs world
         /// </summary>
         private void AddSystems()
         {
-            systems
+            updateSystems
+                .Add(new UnitInitializationSystem())
+                .Add(new SwapTeamSystem())
                 .Add(new PathFollowSystem())
+                .Add(new TargetFindingSystem())
                 .Add(new AnimationSystem())
                 .Add(new TestInitSystem());
+
+            //fixedUpdateSystems
+            //    .Add(new TargetFindingSystem());
         }   
         
         /// <summary>
@@ -32,7 +39,7 @@ namespace TowersBattle.Ecs
         /// </summary>
         private void AddInjections()
         {
-            systems
+            updateSystems
                 .Inject(spawnTable)
                 .Inject(sceneContext);
         }
@@ -42,31 +49,40 @@ namespace TowersBattle.Ecs
         /// </summary>
         private void AddOneframe()
         {
-            systems
-                .OneFrame<UnitStateChangedEvent>();
+            updateSystems
+                .OneFrame<UnitInitializationEvent>()
+                .OneFrame<UnitStateChangedEvent>()
+                .OneFrame<UpdateAnimationEvent>();
         }
 
         private void Start()
         {
             world = new EcsWorld();
-            systems = new EcsSystems(world);
+            updateSystems = new EcsSystems(world);
+            fixedUpdateSystems = new EcsSystems(world);
 
             AddInjections();
             AddSystems();
             AddOneframe();
 
-            systems.Init();
+            updateSystems.Init();
+            fixedUpdateSystems.Init();
         }
 
         private void Update()
         {
-            systems.Run();
+            updateSystems.Run();
+        }
+
+        private void FixedUpdate()
+        {
+            fixedUpdateSystems.Run();
         }
 
         private void OnDestroy()
         {
-            systems?.Destroy();
-            systems = null;
+            updateSystems?.Destroy();
+            updateSystems = null;
 
             world?.Destroy();
             world = null;

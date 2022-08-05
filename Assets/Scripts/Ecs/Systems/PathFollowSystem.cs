@@ -32,7 +32,7 @@ namespace TowersBattle.Ecs
                 {
                     unit.transform.position = pathFollower.path.GetPoint(unit.Team == Team.Player ? pathFollower.path.NumPoints - 1 : 0);
 
-                    unitState.PushState(entity, UnitState.Idle);
+                    unitState.PushState(ref entity, UnitState.Idle);
                     entity.Del<PathFollowComponent>();
                     continue;
                 }
@@ -43,5 +43,25 @@ namespace TowersBattle.Ecs
                     unit.transform.position = pathFollower.path.GetPointAtDistance(pathFollower.path.length - pathFollower.distance);
             }
         }
+
+        //void changeClip()
+        //{
+        //    // Changing animation
+        //    float angle = pathFollower.path.GetRotationAtDistance(pathFollower.distance).eulerAngles.x;
+
+        //    int clip;
+        //    if (angle > 45 && angle < 135 || angle > 225 && angle < 315)
+        //        clip = (unit.Team == Team.Player ? 1 : 2);
+        //    else
+        //        clip = (unit.Team == Team.Player ? 2 : 1);
+
+        //    if (clip != pathFollower.lastClip)
+        //    {
+        //        ref var animEvent = ref entity.Get<UpdateAnimationEvent>();
+        //        animEvent.state = UnitState.Running;
+        //        animEvent.clip = clip;
+        //    }
+        //    pathFollower.lastClip = clip;
+        //}
     }
 }

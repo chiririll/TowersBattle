@@ -10,7 +10,6 @@ namespace TowersBattle.Data
     {
         public PathCreator path;
 
-        public GameObject playerTower;
-        public GameObject enemyTower;
+        public UnitObjectData[] units;
     }
 }

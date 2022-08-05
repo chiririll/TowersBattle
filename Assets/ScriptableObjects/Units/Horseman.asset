@@ -13,11 +13,38 @@ MonoBehaviour:
   m_Name: Horseman
   m_EditorClassIdentifier: 
   name: Horseman
-  prefab: {fileID: 9132663015925064675, guid: d6210515e61020d4692c2c10bfb296b9, type: 3}
+  prefab: {fileID: 5960579631105746453, guid: d6210515e61020d4692c2c10bfb296b9, type: 3}
   dominatingTarget: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
   dominationFactor: 1.3
   maxHP: 150
   attackSpeed: 1
-  damage: 40
-  attackRange: 10
+  attackRange: 1.8
+  damageType: 0
+  meleeDmgData:
+    damage: 35
+  rangedDmgData:
+    projectile: {fileID: 0}
+    speed: 0
+    damage: 0
+  moveable: 1
   speed: 4
+  healthBar: {fileID: 0}
+  animations:
+    animations:
+    - state: 0
+      name: idle
+      loop: 1
+      clipsCount: 2
+    - state: 1
+      name: run
+      loop: 1
+      clipsCount: 2
+    - state: 2
+      name: attack
+      loop: 1
+      clipsCount: 2
+    - state: 3
+      name: death
+      loop: 0
+      clipsCount: 2
+    animator: {fileID: 0}

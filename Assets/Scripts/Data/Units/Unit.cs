@@ -1,7 +1,14 @@
 namespace TowersBattle.Data
 {
-    using Spine.Unity;
+    using System;
+    using TowersBattle.Ecs;
     using UnityEngine;
+
+    [Serializable]
+    public struct Component
+    {
+        public float test;
+    }
 
     [CreateAssetMenu(fileName = "New Unit", menuName = "Units/Unit")]
     public class Unit : ScriptableObject
@@ -18,10 +25,19 @@ namespace TowersBattle.Data
         [Header("Combat")]
         [Min(0)] public int maxHP;
         [Min(0)] public float attackSpeed;
-        [Min(0)] public int damage;
         [Min(0)] public float attackRange;
 
+        [Space(5)]
+        public DamageType damageType;
+        public MeleeDamageData meleeDmgData;
+        public RangedDamageData rangedDmgData;
+
         [Header("Movement")]
+        public bool moveable;
         [Min(0)] public float speed;
+
+        [Header("Grap")]
+        public HealthBar healthBar;
+        public AnimationComponent animations;
     }
 }

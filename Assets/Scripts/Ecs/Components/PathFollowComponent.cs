@@ -7,5 +7,7 @@ namespace TowersBattle.Ecs
         public VertexPath path;
         public float speed;
         public float distance;
+
+        public int lastClip;
     }
 }

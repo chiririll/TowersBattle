@@ -1,27 +1,29 @@
 namespace TowersBattle.Ecs
 {
-    using Spine.Unity;
+    using Leopotam.Ecs;
     using UnityEngine;
 
     public struct UnitComponent
     {
         // Unity components
         public Transform transform;
-        public Collider2D rangeCollider;
-        public Collider2D hitbox;
-        public SkeletonAnimation animator;
-
+        
         // Combat
+        public float attackRange;
+        public float attackSpeed;
         private Team team;
         public Team Team
         {
             get { return team; }
-            set {
-                animator.skeleton.SetSkin(value == Team.Player ? "1" : "2");
-                animator.skeleton.ScaleX = Mathf.Abs(animator.skeleton.ScaleX) * (value == Team.Player ? 1 : -1);
-                team = value; 
-            }
         }
-        public float fireRate;
+        
+
+        public void SwapTeam(ref EcsEntity ent, Team team)
+        {
+            this.team = team;
+
+            ref var teamEvent = ref ent.Get<SwapTeamEvent>();
+            teamEvent.targetTeam = team;
+        }
     }
 }

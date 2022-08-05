@@ -11,12 +11,15 @@ namespace TowersBattle.Ecs
             get { return state; }
         }
 
-        public void PushState(EcsEntity ent, UnitState state)
+        public void PushState(ref EcsEntity ent, UnitState state)
         {
             ref var stateEvent = ref ent.Get<UnitStateChangedEvent>();
-
             stateEvent.previousState = this.state;
             stateEvent.currentState = state;
+
+            ref var animationEvent = ref ent.Get<UpdateAnimationEvent>();
+            animationEvent.state = state;
+            animationEvent.clip = 1;
 
             this.state = state;
         }

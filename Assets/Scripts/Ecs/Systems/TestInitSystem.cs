@@ -1,7 +1,6 @@
 namespace TowersBattle.Ecs
 {
     using Leopotam.Ecs;
-    using Spine.Unity;
     using TowersBattle.Data;
     using UnityEngine;
 
@@ -14,6 +13,7 @@ namespace TowersBattle.Ecs
 
         public void Init()
         {
+
             CreateEntity(spawnTable.units[0], Team.Player);
             CreateEntity(spawnTable.units[1], Team.Player);
             CreateEntity(spawnTable.units[2], Team.Player);
@@ -23,26 +23,14 @@ namespace TowersBattle.Ecs
             CreateEntity(spawnTable.units[2], Team.Enemy);
         }
 
-        private void CreateEntity(Unit unitProperties, Team team)
+        private void CreateEntity(Unit unit, Team team)
         {
-            EcsEntity unit = ecsWorld.NewEntity();
+            EcsEntity ent = ecsWorld.NewEntity();
 
-            ref var unitData = ref unit.Get<UnitComponent>();
-            ref var state = ref unit.Get<UnitStateComponent>();
-            ref var follower = ref unit.Get<PathFollowComponent>();
-
-            var unitGO = GameObject.Instantiate(unitProperties.prefab);
-
-            unitData.transform = unitGO.transform;
-            unitData.animator = unitGO.GetComponent<SkeletonAnimation>();
-            unitData.fireRate = unitProperties.attackSpeed;
-            unitData.Team = team;
-
-            state.PushState(unit, UnitState.Running);
-
-            follower.path = scene.path.path;
-            follower.distance = 0; // default
-            follower.speed = unitProperties.speed;
+            ref var initEvent = ref ent.Get<UnitInitializationEvent>();
+            initEvent.unit = unit;
+            initEvent.team = team;
+            initEvent.position = new Vector3(20 * (team == Team.Player ? -1 : 1), 0, 0);
         }
     }
 }

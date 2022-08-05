@@ -8,31 +8,39 @@ namespace TowersBattle.Ecs
     /// </summary>
     public class AnimationSystem : IEcsRunSystem
     {
-        private EcsFilter<UnitStateChangedEvent, UnitComponent> filter;
+        private EcsFilter<UpdateAnimationEvent, AnimationComponent> filter;
+
+        private AnimationComponent.Animation defaultAnimation;
+
+        public AnimationSystem()
+        {
+            defaultAnimation.name = "";
+        }
 
         public void Run()
         {
             foreach (var i in filter)
             {
-                ref var stateEvent = ref filter.Get1(i);
-                ref var unit = ref filter.Get2(i);
+                ref var animEvent = ref filter.Get1(i);
+                ref var animator = ref filter.Get2(i);
 
-                switch (stateEvent.currentState)
-                {
-                    case UnitState.Idle:
-                        unit.animator.AnimationState.SetAnimation(1, "idle_1", true);
-                        break;
-                    case UnitState.Running:
-                        unit.animator.AnimationState.SetAnimation(1, "run_1", true);
-                        break;
-                    case UnitState.Attacking:
-                        unit.animator.AnimationState.SetAnimation(1, "attack_1", true);
-                        break;
-                    case UnitState.Dying:
-                        unit.animator.AnimationState.SetAnimation(1, "death_1", false);
-                        break;
-                }
+                var anim = FindAnimation(ref animator, animEvent.state);
+                if (anim.name == "")
+                    continue;
+
+                animator.animator.AnimationState.SetAnimation(0, anim.GetName(animEvent.clip), anim.loop);
             }
+        }
+
+        public AnimationComponent.Animation FindAnimation(ref AnimationComponent animator, UnitState state)
+        {
+            foreach (var anim in animator.animations)
+            {
+                if (anim.state.Equals(state))
+                    return anim;
+            }
+
+            return defaultAnimation;
         }
     }
 }

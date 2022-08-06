@@ -18,17 +18,16 @@ MonoBehaviour:
   dominationFactor: 1.8
   maxHP: 120
   attackSpeed: 0.8
-  attackRange: 6
-  damageType: 1
+  attackRange: 1.2
+  damageType: 0
   meleeDmgData:
-    damage: 0
+    damage: 60
   rangedDmgData:
     projectile: {fileID: 0}
-    speed: 5
-    damage: 80
+    speed: 0
+    damage: 0
   moveable: 1
-  speed: 1.5
-  healthBar: {fileID: 0}
+  speed: 1.9
   animations:
     animations:
     - state: 0
@@ -43,7 +42,7 @@ MonoBehaviour:
       clipsCount: 2
     - state: 2
       name: attack
-      loop: 1
+      loop: 0
       track: 1
       clipsCount: 2
     - state: 3

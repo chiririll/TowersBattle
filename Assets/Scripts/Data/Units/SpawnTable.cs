@@ -6,5 +6,10 @@ namespace TowersBattle.Data
     public class SpawnTable : ScriptableObject 
     {
         public Unit[] units;
+
+        public Unit GetUnit()
+        {
+            return units[Random.Range(0, units.Length)];
+        }
     }
 }

@@ -151,7 +151,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 136167732254931169}
-  - {fileID: 1792685411067540676}
   - {fileID: 4008776431007163215}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -170,42 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+  spawnerAiControllable: 0
   startingState: 1
   rangeAnchor: {x: 0, y: 0.9, z: 0}
   hitboxAnchor: {x: 0, y: 0.9, z: 0}
+  spawnerPoint: {x: 0, y: 0, z: 0}
   animator: {fileID: 6342650631385447962}
   healthBar: {fileID: 4008776431007163212}
---- !u!1 &8455767070397075476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1792685411067540676}
-  m_Layer: 0
-  m_Name: HealthbarAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1792685411067540676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8455767070397075476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3376402411198174340}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4358295493891881260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853940402825173603, guid: 32d41b958bb5e274e8feff59579df186, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853940402825173603, guid: 32d41b958bb5e274e8feff59579df186, type: 3}
       propertyPath: m_LocalScale.x

@@ -11,7 +11,6 @@ namespace TowersBattle.Ecs
     {
         private EcsWorld world;
         private EcsSystems updateSystems;
-        private EcsSystems fixedUpdateSystems;
 
         // Injections
         [SerializeField] private SpawnTable spawnTable;
@@ -23,21 +22,25 @@ namespace TowersBattle.Ecs
         private void AddSystems()
         {
             updateSystems
-                .Add(new UnitInitializationSystem())
                 .Add(new UnitStateSystem())
                 .Add(new HealthSystem())
-                .Add(new SwapTeamSystem())
                 .Add(new PathFollowSystem())
+
+                .Add(new AiSpawnerControlSystem())
+                .Add(new UnitSpawnSystem())
+                .Add(new UnitInitializationSystem())
+
+                .Add(new SwapTeamSystem())
+
                 .Add(new TargetFindingSystem())
                 .Add(new MeleeAttackSystem())
                 .Add(new RangedAttackSystem())
+                
                 .Add(new AnimationSystem())
                 .Add(new HealthBarUpdateSystem())
                 .Add(new CorpsCleanupSystem())
+                
                 .Add(new TestInitSystem());
-
-            //fixedUpdateSystems
-            //    .Add(new TargetFindingSystem());
         }   
         
         /// <summary>
@@ -62,6 +65,7 @@ namespace TowersBattle.Ecs
                 .OneFrame<UnitInitializationEvent>()
                 .OneFrame<UnitStateChangedEvent>()
                 .OneFrame<UpdateAnimationEvent>()
+                .OneFrame<SpawnUnitEvent>()
                 .OneFrame<UninitializedTag>();
         }
 
@@ -69,24 +73,17 @@ namespace TowersBattle.Ecs
         {
             world = new EcsWorld();
             updateSystems = new EcsSystems(world);
-            fixedUpdateSystems = new EcsSystems(world);
 
             AddInjections();
             AddSystems();
             AddOneframe();
 
             updateSystems.Init();
-            fixedUpdateSystems.Init();
         }
 
         private void Update()
         {
             updateSystems.Run();
-        }
-
-        private void FixedUpdate()
-        {
-            fixedUpdateSystems.Run();
         }
 
         private void OnDestroy()

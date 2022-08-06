@@ -11,13 +11,13 @@ namespace TowersBattle.Ecs
         
         public void Init()
         {
-            CreateEntity(spawnTable.units[0], Team.Player);
-            CreateEntity(spawnTable.units[1], Team.Player);
-            CreateEntity(spawnTable.units[2], Team.Player);
+            //CreateEntity(spawnTable.units[0], Team.Player);
+            //CreateEntity(spawnTable.units[1], Team.Player);
+            //CreateEntity(spawnTable.units[2], Team.Player);
 
-            // CreateEntity(spawnTable.units[0], Team.Enemy);
-            CreateEntity(spawnTable.units[1], Team.Enemy);
-            CreateEntity(spawnTable.units[2], Team.Enemy);
+            //// CreateEntity(spawnTable.units[0], Team.Enemy);
+            //CreateEntity(spawnTable.units[1], Team.Enemy);
+            //CreateEntity(spawnTable.units[2], Team.Enemy);
         }
 
         private void CreateEntity(Unit unit, Team team)

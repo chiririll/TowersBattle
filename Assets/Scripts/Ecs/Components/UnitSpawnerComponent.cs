@@ -1,9 +1,9 @@
+using UnityEngine;
+
 namespace TowersBattle.Ecs
 {
-    using TowersBattle.Data;
-
     public struct UnitSpawnerComponent
     {
-        public SpawnTable spawnTable;
+        public Vector3 spawnPoint;
     }
 }

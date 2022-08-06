@@ -97,6 +97,15 @@ namespace TowersBattle.Ecs
                     break;
             }
 
+            // Spawner
+            if (unitData.unit.unitSpawner)
+            {
+                InitUnitSpawnerComponent(ref ent, ref unitData);
+
+                if (unitData.spawnerAiControllable)
+                    InitAiSpawnerControlComponent(ref ent, ref unitData.unit);
+            }    
+
             // Removing UnitObjectData component
             GameObject.Destroy(unitData);
         }
@@ -177,6 +186,19 @@ namespace TowersBattle.Ecs
         private void InitRangedDamageComponent(ref EcsEntity ent, ref Unit unit)
         {
             // TODO
+        }
+
+        private void InitUnitSpawnerComponent(ref EcsEntity ent, ref UnitObjectData unitData)
+        {
+            ref var spawner = ref ent.Get<UnitSpawnerComponent>();
+            spawner.spawnPoint = unitData.spawnerPoint;
+
+        }
+        private void InitAiSpawnerControlComponent(ref EcsEntity ent, ref Unit unit)
+        {
+            ref var controller = ref ent.Get<AiSpawnerControlComponent>();
+            controller = unit.aiSpawner;
+            controller.nextSpawnTime = Time.time + unit.startDealay;
         }
     }
 }

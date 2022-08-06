@@ -16,6 +16,8 @@ MonoBehaviour:
   prefab: {fileID: 6537577764801845707, guid: feb1989a87d58d249aaa5b31339d71c2, type: 3}
   dominatingTarget: {fileID: 0}
   dominationFactor: 1
+  moveable: 0
+  speed: 0
   maxHP: 500
   attackSpeed: 1
   attackRange: 10
@@ -26,9 +28,13 @@ MonoBehaviour:
     projectile: {fileID: 0}
     speed: 10
     damage: 20
-  moveable: 0
-  speed: 0
-  healthBar: {fileID: 0}
+  unitSpawner: 1
+  startDealay: 10
+  aiSpawner:
+    table: {fileID: 11400000, guid: 5026fac595020c34c8b948b359286ae6, type: 2}
+    minCooldown: 1
+    maxCooldown: 3
+    nextSpawnTime: 0
   animations:
     animations:
     - state: 0

@@ -31,6 +31,9 @@ namespace TowersBattle.Ecs
             {
                 if (anim.state == state)
                 {
+                    if (anim.track == 0)
+                        animator.animator.AnimationState.ClearTracks();
+
                     animator.animator.AnimationState.SetAnimation(anim.track, anim.GetName(clip), anim.loop);
                     return;
                 }

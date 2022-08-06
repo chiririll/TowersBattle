@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2667277099620222}
-  - {fileID: 9024923968253578878}
   - {fileID: 8760789570110510492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,9 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+  spawnerAiControllable: 0
   startingState: 1
   rangeAnchor: {x: 0, y: 0.55, z: 0}
   hitboxAnchor: {x: 0, y: 0.55, z: 0}
+  spawnerPoint: {x: 0, y: 0, z: 0}
   animator: {fileID: 2667277099620219}
   healthBar: {fileID: 8760789570110510495}
 --- !u!1 &2667277099620218
@@ -175,37 +176,6 @@ MonoBehaviour:
   _animationName: idle_1
   loop: 1
   timeScale: 1
---- !u!1 &998837881626881200
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9024923968253578878}
-  m_Layer: 0
-  m_Name: HealthbarAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9024923968253578878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998837881626881200}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 0.14999999}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2667276558233325}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8236342609637658623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853940402825173603, guid: 32d41b958bb5e274e8feff59579df186, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853940402825173603, guid: 32d41b958bb5e274e8feff59579df186, type: 3}
       propertyPath: m_LocalScale.x

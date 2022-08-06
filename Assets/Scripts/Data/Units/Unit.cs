@@ -18,9 +18,12 @@ namespace TowersBattle.Data
         public GameObject prefab;
 
         [Header("Preferences")]
-        public Unit dominatingTarget;
+        public Unit dominatingTarget; // TODO!!!
         [Min(0)] public float dominationFactor;
-        // [SerializeField] private Unit prioritizedTarget;
+
+        [Header("Movement")]
+        public bool moveable;
+        [Min(0)] public float speed;
 
         [Header("Combat")]
         [Min(0)] public int maxHP;
@@ -32,9 +35,10 @@ namespace TowersBattle.Data
         public MeleeDamageData meleeDmgData;
         public RangedDamageData rangedDmgData;
 
-        [Header("Movement")]
-        public bool moveable;
-        [Min(0)] public float speed;
+        [Header("Spawner")]
+        public bool unitSpawner;
+        public float startDealay;
+        public AiSpawnerControlComponent aiSpawner;
 
         [Header("Graphics")]
         public AnimationComponent animations;

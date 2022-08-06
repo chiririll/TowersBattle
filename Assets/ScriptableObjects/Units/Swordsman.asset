@@ -21,14 +21,13 @@ MonoBehaviour:
   attackRange: 1
   damageType: 0
   meleeDmgData:
-    damage: 20
+    damage: 15
   rangedDmgData:
     projectile: {fileID: 0}
     speed: 0
     damage: 0
   moveable: 1
   speed: 2
-  healthBar: {fileID: 0}
   animations:
     animations:
     - state: 0

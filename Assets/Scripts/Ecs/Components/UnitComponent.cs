@@ -7,7 +7,9 @@ namespace TowersBattle.Ecs
     {
         // Unity components
         public Transform transform;
-        
+        public Vector3 attackRangeAnchor;
+        public Vector3 hitboxAnchor;
+
         // Combat
         public float attackRange;
         public float attackSpeed;

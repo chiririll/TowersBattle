@@ -30,7 +30,8 @@ namespace TowersBattle.Ecs
                 ref var targetUnit = ref filterAllUnits.Get1(j);
 
                 if (targetUnit.Team != unit.Team && 
-                    Vector3.Distance(unit.transform.position, targetUnit.transform.position) <= unit.attackRange)
+                    Vector3.Distance(unit.transform.position + unit.attackRangeAnchor, 
+                        targetUnit.transform.position + targetUnit.hitboxAnchor) <= unit.attackRange)
                 {
                     AssignTarget(ref ent, ref unitState, ref filterAllUnits.GetEntity(j));
                     return;
@@ -38,12 +39,13 @@ namespace TowersBattle.Ecs
             }
         }
 
-        private void AssignTarget(ref EcsEntity unit, ref UnitStateComponent state, ref EcsEntity target)
+        private void AssignTarget(ref EcsEntity unit, ref UnitStateComponent unitState, ref EcsEntity target)
         {
             ref var targetComponent = ref unit.Get<HasTargetComponent>();
             targetComponent.target = target;
+            targetComponent.previousState = unitState.State;
 
-            state.PushState(ref unit, UnitState.Attacking);
+            unitState.State = UnitState.Attacking;
         }
     }
 }

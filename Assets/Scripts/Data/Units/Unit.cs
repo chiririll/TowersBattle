@@ -36,8 +36,7 @@ namespace TowersBattle.Data
         public bool moveable;
         [Min(0)] public float speed;
 
-        [Header("Grap")]
-        public HealthBar healthBar;
+        [Header("Graphics")]
         public AnimationComponent animations;
     }
 }

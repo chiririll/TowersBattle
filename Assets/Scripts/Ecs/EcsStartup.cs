@@ -24,10 +24,16 @@ namespace TowersBattle.Ecs
         {
             updateSystems
                 .Add(new UnitInitializationSystem())
+                .Add(new UnitStateSystem())
+                .Add(new HealthSystem())
                 .Add(new SwapTeamSystem())
                 .Add(new PathFollowSystem())
                 .Add(new TargetFindingSystem())
+                .Add(new MeleeAttackSystem())
+                .Add(new RangedAttackSystem())
                 .Add(new AnimationSystem())
+                .Add(new HealthBarUpdateSystem())
+                .Add(new CorpsCleanupSystem())
                 .Add(new TestInitSystem());
 
             //fixedUpdateSystems
@@ -50,9 +56,13 @@ namespace TowersBattle.Ecs
         private void AddOneframe()
         {
             updateSystems
+                .OneFrame<SwapTeamEvent>()
+                .OneFrame<HealthChangedEvent>()
+                .OneFrame<UnitDeathEvent>()
                 .OneFrame<UnitInitializationEvent>()
                 .OneFrame<UnitStateChangedEvent>()
-                .OneFrame<UpdateAnimationEvent>();
+                .OneFrame<UpdateAnimationEvent>()
+                .OneFrame<UninitializedTag>();
         }
 
         private void Start()

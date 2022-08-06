@@ -32,7 +32,7 @@ namespace TowersBattle.Ecs
                 {
                     unit.transform.position = pathFollower.path.GetPoint(unit.Team == Team.Player ? pathFollower.path.NumPoints - 1 : 0);
 
-                    unitState.PushState(ref entity, UnitState.Idle);
+                    unitState.State = UnitState.Idle;
                     entity.Del<PathFollowComponent>();
                     continue;
                 }

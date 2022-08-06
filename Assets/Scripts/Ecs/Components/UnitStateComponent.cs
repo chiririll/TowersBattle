@@ -3,26 +3,33 @@ using Leopotam.Ecs;
 namespace TowersBattle.Ecs
 {
     public struct UnitStateComponent
-    {	
-        private UnitState state;
+    {
+        private UnitState currentState;
+        private UnitState lastState;
+        private bool changed;
 
         public UnitState State
         {
-            get { return state; }
+            get { return currentState; }
+            set {
+                if (!changed)
+                {
+                    lastState = currentState;
+                    changed = true;
+                }
+                currentState = value; 
+            }
         }
 
-        public void PushState(ref EcsEntity ent, UnitState state)
+        public bool IsStateChanged()
+        { 
+            return changed; 
+        }
+
+        public UnitState ReadStateChange(bool resetChange = false)
         {
-            ref var stateEvent = ref ent.Get<UnitStateChangedEvent>();
-            stateEvent.previousState = this.state;
-            stateEvent.currentState = state;
-
-            ref var animationEvent = ref ent.Get<UpdateAnimationEvent>();
-            animationEvent.state = state;
-            animationEvent.clip = 1;
-
-            this.state = state;
+            changed = !resetChange;
+            return lastState;
         }
-
     }
 }

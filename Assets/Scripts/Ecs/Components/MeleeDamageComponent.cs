@@ -4,5 +4,7 @@ namespace TowersBattle.Ecs
     {
         public int damage;
         public float fireRate;
+
+        public float nextAttack;
     }
 }

@@ -28,22 +28,27 @@ MonoBehaviour:
     damage: 80
   moveable: 1
   speed: 1.5
+  healthBar: {fileID: 0}
   animations:
     animations:
     - state: 0
       name: idle
       loop: 1
+      track: 0
       clipsCount: 2
     - state: 1
       name: run
       loop: 1
+      track: 1
       clipsCount: 2
     - state: 2
       name: attack
       loop: 1
+      track: 1
       clipsCount: 2
     - state: 3
       name: death
       loop: 0
+      track: 0
       clipsCount: 2
     animator: {fileID: 0}

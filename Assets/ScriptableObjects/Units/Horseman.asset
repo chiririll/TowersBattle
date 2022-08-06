@@ -21,7 +21,7 @@ MonoBehaviour:
   attackRange: 1.8
   damageType: 0
   meleeDmgData:
-    damage: 35
+    damage: 40
   rangedDmgData:
     projectile: {fileID: 0}
     speed: 0
@@ -34,17 +34,21 @@ MonoBehaviour:
     - state: 0
       name: idle
       loop: 1
+      track: 0
       clipsCount: 2
     - state: 1
       name: run
       loop: 1
+      track: 1
       clipsCount: 2
     - state: 2
       name: attack
-      loop: 1
+      loop: 0
+      track: 1
       clipsCount: 2
     - state: 3
       name: death
       loop: 0
+      track: 0
       clipsCount: 2
     animator: {fileID: 0}

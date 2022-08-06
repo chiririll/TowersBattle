@@ -13,6 +13,7 @@ namespace TowersBattle.Ecs
             public UnitState state;
             public string name;
             public bool loop;
+            [Min(0)] public int track;
             [Min(1)] public int clipsCount;
 
             public string GetName(int clip) 

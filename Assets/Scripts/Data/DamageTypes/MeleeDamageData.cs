@@ -6,6 +6,6 @@ namespace TowersBattle.Data
     [Serializable]
     public class MeleeDamageData
     {
-        [Min(0)] public float damage;
+        [Min(0)] public int damage;
     }
 }

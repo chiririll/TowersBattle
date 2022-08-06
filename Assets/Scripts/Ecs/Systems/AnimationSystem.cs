@@ -1,46 +1,41 @@
+using Leopotam.Ecs;
+
 namespace TowersBattle.Ecs
 {
-    using UnityEngine;
-    using Leopotam.Ecs;
-
     /// <summary>
     /// TODO
     /// </summary>
     public class AnimationSystem : IEcsRunSystem
     {
-        private EcsFilter<UpdateAnimationEvent, AnimationComponent> filter;
-
-        private AnimationComponent.Animation defaultAnimation;
-
-        public AnimationSystem()
-        {
-            defaultAnimation.name = "";
-        }
+        private EcsFilter<UpdateAnimationEvent, AnimationComponent> animationEventFilter;
+        private EcsFilter<UnitStateChangedEvent, AnimationComponent> stateEventFilter;
 
         public void Run()
         {
-            foreach (var i in filter)
+            foreach (var i in animationEventFilter)
             {
-                ref var animEvent = ref filter.Get1(i);
-                ref var animator = ref filter.Get2(i);
-
-                var anim = FindAnimation(ref animator, animEvent.state);
-                if (anim.name == "")
-                    continue;
-
-                animator.animator.AnimationState.SetAnimation(0, anim.GetName(animEvent.clip), anim.loop);
+                ref var animEvent = ref animationEventFilter.Get1(i);
+                SetAnimation(ref animationEventFilter.Get2(i), animEvent.state, animEvent.clip);
             }
+
+            foreach (var i in stateEventFilter)
+            {
+                ref var stateEvent = ref stateEventFilter.Get1(i);
+                SetAnimation(ref stateEventFilter.Get2(i), stateEvent.currentState, 0);
+            }    
         }
 
-        public AnimationComponent.Animation FindAnimation(ref AnimationComponent animator, UnitState state)
+        private void SetAnimation(ref AnimationComponent animator, UnitState state, int clip)
         {
             foreach (var anim in animator.animations)
             {
-                if (anim.state.Equals(state))
-                    return anim;
+                if (anim.state == state)
+                {
+                    animator.animator.AnimationState.SetAnimation(anim.track, anim.GetName(clip), anim.loop);
+                    return;
+                }
+                    
             }
-
-            return defaultAnimation;
         }
     }
 }

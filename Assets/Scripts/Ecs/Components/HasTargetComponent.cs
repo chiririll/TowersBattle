@@ -5,5 +5,6 @@ namespace TowersBattle.Ecs
     public struct HasTargetComponent
     {
         public EcsEntity target;
+        public UnitState previousState;
     }
 }

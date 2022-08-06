@@ -20,7 +20,7 @@ namespace TowersBattle.Ecs
             {
                 EcsEntity ent = ecsWorld.NewEntity();
 
-                InitializeUnit(ref ent, unitData);
+                ConvertGameObject(ref ent, unitData);
             }
         }
 
@@ -31,7 +31,7 @@ namespace TowersBattle.Ecs
                 ref var ent = ref filter.GetEntity(i);
                 ref var eventData = ref filter.Get1(i);
 
-                InitializeUnit(ref ent, ref eventData);
+                CreateUnit(ref ent, ref eventData);
             }
         }
 
@@ -39,16 +39,17 @@ namespace TowersBattle.Ecs
         /// Function for converting unit initialization event into entity
         /// </summary>
         /// <param name="eventData">Event data</param>
-        public void InitializeUnit(ref EcsEntity ent, ref UnitInitializationEvent eventData)
+        public void CreateUnit(ref EcsEntity ent, ref UnitInitializationEvent eventData)
         {
             // Creating unit game object
             var unitGO = GameObject.Instantiate(eventData.unit.prefab);
             unitGO.transform.position = eventData.position;
             UnitObjectData unitData = unitGO.GetComponent<UnitObjectData>();
-
+            
+            unitData.unit = eventData.unit;
             unitData.team = eventData.team;
 
-            InitializeUnit(ref ent, ref eventData.unit, ref unitData);
+            InitializeUnit(ref ent, ref unitData);
         }
 
         /// <summary>
@@ -56,9 +57,9 @@ namespace TowersBattle.Ecs
         /// </summary>
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void InitializeUnit(ref EcsEntity ent, UnitObjectData unitData)
+        public void ConvertGameObject(ref EcsEntity ent, UnitObjectData unitData)
         {
-            InitializeUnit(ref ent, ref unitData.unit, ref unitData);
+            InitializeUnit(ref ent, ref unitData);
         }
 
         /// <summary>
@@ -67,31 +68,32 @@ namespace TowersBattle.Ecs
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unit">Unit settings (ScriptableObject)</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void InitializeUnit(ref EcsEntity ent, ref Unit unit, ref UnitObjectData unitData)
+        public void InitializeUnit(ref EcsEntity ent, ref UnitObjectData unitData)
         {
             // Core
-            InitUnitComponent(ref ent, ref unitData, ref unit);
+            InitUninitializedTag(ref ent);
+            InitUnitComponent(ref ent, ref unitData);
             InitStateComponent(ref ent, unitData.startingState);
-            InitHealthComponent(ref ent, ref unit);
+            InitHealthComponent(ref ent, ref unitData.unit);
 
             // Graphics
-            InitAnimationComponent(ref ent, ref unitData, ref unit);
-            if (unit.healthBar)
+            InitAnimationComponent(ref ent, ref unitData);
+            if (unitData.healthBar)
                 InitHealthBarComponent(ref ent, ref unitData);
 
             // FollowSystem
-            if (unit.moveable)
-                InitPathFollowComponent(ref ent, ref unit);
+            if (unitData.unit.moveable)
+                InitPathFollowComponent(ref ent, ref unitData.unit);
 
             // Combat
-            InitHealthComponent(ref ent, ref unit);
-            switch (unit.damageType)
+            InitHealthComponent(ref ent, ref unitData.unit);
+            switch (unitData.unit.damageType)
             {
                 case DamageType.Melee:
-                    InitMeleeDamageComponent(ref ent, ref unit);
+                    InitMeleeDamageComponent(ref ent, ref unitData.unit);
                     break;
                 case DamageType.Ranged:
-                    InitRangedDamageComponent(ref ent, ref unit);
+                    InitRangedDamageComponent(ref ent, ref unitData.unit);
                     break;
             }
 
@@ -99,13 +101,20 @@ namespace TowersBattle.Ecs
             GameObject.Destroy(unitData);
         }
 
-        private void InitUnitComponent(ref EcsEntity ent, ref UnitObjectData data, ref Unit unit)
+        private void InitUninitializedTag(ref EcsEntity ent)
+        {
+            ent.Get<UninitializedTag>();
+        }
+
+        private void InitUnitComponent(ref EcsEntity ent, ref UnitObjectData data)
         {
             ref var unitComponent = ref ent.Get<UnitComponent>();
             unitComponent.transform = data.transform;
+            unitComponent.attackRangeAnchor = data.rangeAnchor;
+            unitComponent.hitboxAnchor = data.hitboxAnchor;
             
-            unitComponent.attackRange = unit.attackRange;
-            unitComponent.attackSpeed = unit.attackSpeed;
+            unitComponent.attackRange = data.unit.attackRange;
+            unitComponent.attackSpeed = data.unit.attackSpeed;
 
             unitComponent.SwapTeam(ref ent, data.team);
             
@@ -121,17 +130,17 @@ namespace TowersBattle.Ecs
             }
         }
 
-        private void InitAnimationComponent(ref EcsEntity ent, ref UnitObjectData data, ref Unit unit)
+        private void InitAnimationComponent(ref EcsEntity ent, ref UnitObjectData data)
         {
             ref var animComponent = ref ent.Get<AnimationComponent>();
-            animComponent = unit.animations;
+            animComponent = data.unit.animations;
             animComponent.animator = data.animator;
         }
 
         private void InitStateComponent(ref EcsEntity ent, UnitState startingState)
         {
             ref var state = ref ent.Get<UnitStateComponent>();
-            state.PushState(ref ent, startingState);
+            state.State = startingState;
         }
 
         private void InitPathFollowComponent(ref EcsEntity ent, ref Unit unit)
@@ -154,13 +163,15 @@ namespace TowersBattle.Ecs
         private void InitHealthBarComponent(ref EcsEntity ent, ref UnitObjectData unitData)
         {
             ref var hbar = ref ent.Get<HealthbarComponent>();
-            
-            // TODO
+
+            hbar.healthBar = unitData.healthBar;
         }
 
         private void InitMeleeDamageComponent(ref EcsEntity ent, ref Unit unit)
         {
-            // TODO
+            ref var dmg = ref ent.Get<MeleeDamageComponent>();
+            dmg.damage = unit.meleeDmgData.damage;
+            dmg.fireRate = 1f / unit.attackSpeed;
         }
 
         private void InitRangedDamageComponent(ref EcsEntity ent, ref Unit unit)

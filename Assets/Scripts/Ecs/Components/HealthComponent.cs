@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace TowersBattle.Ecs
 {
@@ -6,15 +7,20 @@ namespace TowersBattle.Ecs
     {
         public int maxHealth;
 
-        private int hp;
+        private int currentHp;
+        private bool changed;
+        private int lastHp;
+
         public int Hp
         {
-            get { return hp; }
+            get { return currentHp; }
             set {
-                if (value >= 0 && value <= maxHealth)
-                    hp = value;
-                else
-                    throw new ArgumentOutOfRangeException("health", value, "out of range (0; " + maxHealth.ToString() + ")");
+                if (!changed)
+                {
+                    lastHp = currentHp;
+                    changed = true;
+                }
+                currentHp = Mathf.Clamp(value, 0, maxHealth);
             }
         }
 
@@ -23,19 +29,26 @@ namespace TowersBattle.Ecs
             if (damage < 0)
                 throw new ArgumentOutOfRangeException("damage", damage, "below zero");
             
-            hp -= damage;
-            if (hp < 0)
-                hp = 0;
+            Hp -= damage;
         }
 
-        public void Heal(int amount)
+        public void Heal(int healAmount)
         {
-            if (amount < 0)
-                throw new ArgumentOutOfRangeException("amount", amount, "below zero");
+            if (healAmount < 0)
+                throw new ArgumentOutOfRangeException("healAmount", healAmount, "below zero");
 
-            hp += amount;
-            if (hp > maxHealth)
-                hp = maxHealth;
+            Hp += healAmount;
+        }
+
+        public bool IsHealthChanged()
+        {
+            return changed;
+        }
+
+        public int ReadHpChanges(bool resetChanges = false)
+        {
+            changed = !resetChanges;
+            return lastHp;
         }
     }
 }

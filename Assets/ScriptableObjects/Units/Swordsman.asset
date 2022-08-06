@@ -12,22 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
   m_Name: Swordsman
   m_EditorClassIdentifier: 
-  name: Swordsman
+  type: 3
   prefab: {fileID: 2667276558233327, guid: bf679717f583f6847ba7f95442e33a89, type: 3}
-  dominatingTarget: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
-  dominationFactor: 2
+  moveable: 1
+  speed: 2
   maxHP: 80
-  attackSpeed: 4
-  attackRange: 1
+  attackData:
+    attackRange: 1.2
+    attackSpeed: 4
+    dominatingTarget: 2
+    dominationFactor: 1.2
+    nextAttack: 0
+    nextCheck: 0
   damageType: 0
   meleeDmgData:
     damage: 15
   rangedDmgData:
-    projectile: {fileID: 0}
-    speed: 0
+    fireRate: 0
     damage: 0
-  moveable: 1
-  speed: 2
+  unitSpawner: 0
+  startDealay: 0
+  aiSpawner:
+    table: {fileID: 0}
+    minCooldown: 0
+    maxCooldown: 0
+    nextSpawnTime: 0
   animations:
     animations:
     - state: 0
@@ -51,3 +60,4 @@ MonoBehaviour:
       track: 0
       clipsCount: 2
     animator: {fileID: 0}
+    lastClip: 0

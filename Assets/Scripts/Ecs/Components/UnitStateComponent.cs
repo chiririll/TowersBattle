@@ -1,4 +1,5 @@
 using Leopotam.Ecs;
+using TowersBattle.Data;
 
 namespace TowersBattle.Ecs
 {

@@ -38,9 +38,7 @@ namespace TowersBattle.Ecs
             foreach (var i in deadFilter)
             {
                 ref var hbar = ref deadFilter.Get2(i);
-
-                GameObject.Destroy(hbar.healthBar.gameObject);
-
+                hbar.healthBar.DestroyHbar();
                 deadFilter.GetEntity(i).Del<HealthbarComponent>();
             }
         }

@@ -14,26 +14,21 @@ namespace TowersBattle.Data
     public class Unit : ScriptableObject
     {
         [Header("Common")]
-        public new string name;
+        public UnitType type;
         public GameObject prefab;
-
-        [Header("Preferences")]
-        public Unit dominatingTarget; // TODO!!!
-        [Min(0)] public float dominationFactor;
-
+        
         [Header("Movement")]
         public bool moveable;
         [Min(0)] public float speed;
 
         [Header("Combat")]
         [Min(0)] public int maxHP;
-        [Min(0)] public float attackSpeed;
-        [Min(0)] public float attackRange;
+        public AttackComponent attackData;
 
         [Space(5)]
         public DamageType damageType;
-        public MeleeDamageData meleeDmgData;
-        public RangedDamageData rangedDmgData;
+        public MeleeDamageComponent meleeDmgData;
+        public RangedDamageComponent rangedDmgData;
 
         [Header("Spawner")]
         public bool unitSpawner;

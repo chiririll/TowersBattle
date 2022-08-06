@@ -12,28 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
   m_Name: Tower
   m_EditorClassIdentifier: 
-  name: Tower
+  type: 4
   prefab: {fileID: 6537577764801845707, guid: feb1989a87d58d249aaa5b31339d71c2, type: 3}
-  dominatingTarget: {fileID: 0}
-  dominationFactor: 1
   moveable: 0
   speed: 0
-  maxHP: 500
-  attackSpeed: 1
-  attackRange: 10
-  damageType: 1
+  maxHP: 1000
+  attackData:
+    attackRange: 10
+    attackSpeed: 2
+    dominatingTarget: 0
+    dominationFactor: 0
+    nextAttack: 0
+    nextCheck: 0
+  damageType: 0
   meleeDmgData:
-    damage: 0
+    damage: 20
   rangedDmgData:
-    projectile: {fileID: 0}
-    speed: 10
+    fireRate: 0
     damage: 20
   unitSpawner: 1
-  startDealay: 10
+  startDealay: 3
   aiSpawner:
     table: {fileID: 11400000, guid: 5026fac595020c34c8b948b359286ae6, type: 2}
-    minCooldown: 1
-    maxCooldown: 3
+    minCooldown: 0
+    maxCooldown: 1
     nextSpawnTime: 0
   animations:
     animations:
@@ -53,3 +55,4 @@ MonoBehaviour:
       track: 0
       clipsCount: 1
     animator: {fileID: 0}
+    lastClip: 0

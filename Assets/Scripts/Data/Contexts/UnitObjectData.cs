@@ -51,7 +51,7 @@ namespace TowersBattle.Data
 
             // Drawing attack range
             Handles.color = blue;
-            Handles.DrawWireDisc(transform.position + rangeAnchor, transform.forward, unit.attackRange);
+            Handles.DrawWireDisc(transform.position + rangeAnchor, transform.forward, unit.attackData.attackRange);
             
         }
         #endif

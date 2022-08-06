@@ -1,8 +1,9 @@
+using Leopotam.Ecs;
+using TowersBattle.Data;
+using UnityEngine;
+
 namespace TowersBattle.Ecs
 {
-    using Leopotam.Ecs;
-    using UnityEngine;
-
     public class SwapTeamSystem : IEcsRunSystem
     {
         private EcsFilter<SwapTeamEvent, AnimationComponent> filer;

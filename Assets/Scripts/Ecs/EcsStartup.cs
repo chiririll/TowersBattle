@@ -33,6 +33,7 @@ namespace TowersBattle.Ecs
                 .Add(new SwapTeamSystem())
 
                 .Add(new TargetFindingSystem())
+                .Add(new AttackSystem())
                 .Add(new MeleeAttackSystem())
                 .Add(new RangedAttackSystem())
                 
@@ -66,6 +67,7 @@ namespace TowersBattle.Ecs
                 .OneFrame<UnitStateChangedEvent>()
                 .OneFrame<UpdateAnimationEvent>()
                 .OneFrame<SpawnUnitEvent>()
+                .OneFrame<AttackEvent>()
                 .OneFrame<UninitializedTag>();
         }
 

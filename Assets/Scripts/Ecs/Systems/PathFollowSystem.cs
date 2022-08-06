@@ -1,8 +1,9 @@
+using Leopotam.Ecs;
+using TowersBattle.Data;
+using UnityEngine;
+
 namespace TowersBattle.Ecs  
 {
-    using UnityEngine;
-    using Leopotam.Ecs;
-
     /// <summary>
     /// TODO
     /// </summary>

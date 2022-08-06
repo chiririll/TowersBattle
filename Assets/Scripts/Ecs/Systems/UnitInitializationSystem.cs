@@ -75,6 +75,7 @@ namespace TowersBattle.Ecs
             InitUnitComponent(ref ent, ref unitData);
             InitStateComponent(ref ent, unitData.startingState);
             InitHealthComponent(ref ent, ref unitData.unit);
+            InitAttackComponent(ref ent, ref unitData.unit);
 
             // Graphics
             InitAnimationComponent(ref ent, ref unitData);
@@ -118,12 +119,11 @@ namespace TowersBattle.Ecs
         private void InitUnitComponent(ref EcsEntity ent, ref UnitObjectData data)
         {
             ref var unitComponent = ref ent.Get<UnitComponent>();
+            unitComponent.type = data.unit.type;
+
             unitComponent.transform = data.transform;
             unitComponent.attackRangeAnchor = data.rangeAnchor;
             unitComponent.hitboxAnchor = data.hitboxAnchor;
-            
-            unitComponent.attackRange = data.unit.attackRange;
-            unitComponent.attackSpeed = data.unit.attackSpeed;
 
             unitComponent.SwapTeam(ref ent, data.team);
             
@@ -169,6 +169,13 @@ namespace TowersBattle.Ecs
             health.Hp = unit.maxHP;
         }
 
+        private void InitAttackComponent(ref EcsEntity ent, ref Unit unit)
+        {
+            ref var attackComp = ref ent.Get<AttackComponent>();
+
+            attackComp = unit.attackData;
+        }
+
         private void InitHealthBarComponent(ref EcsEntity ent, ref UnitObjectData unitData)
         {
             ref var hbar = ref ent.Get<HealthbarComponent>();
@@ -179,8 +186,7 @@ namespace TowersBattle.Ecs
         private void InitMeleeDamageComponent(ref EcsEntity ent, ref Unit unit)
         {
             ref var dmg = ref ent.Get<MeleeDamageComponent>();
-            dmg.damage = unit.meleeDmgData.damage;
-            dmg.fireRate = 1f / unit.attackSpeed;
+            dmg = unit.meleeDmgData;
         }
 
         private void InitRangedDamageComponent(ref EcsEntity ent, ref Unit unit)

@@ -12,22 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
   m_Name: Spearman
   m_EditorClassIdentifier: 
-  name: Spearman
+  type: 2
   prefab: {fileID: 2199590883760040824, guid: d74c9077ac6c0e74e9a7167445f4abf9, type: 3}
-  dominatingTarget: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
-  dominationFactor: 1.8
+  moveable: 1
+  speed: 1.9
   maxHP: 120
-  attackSpeed: 0.8
-  attackRange: 1.2
+  attackData:
+    attackRange: 1.5
+    attackSpeed: 1.3
+    dominatingTarget: 1
+    dominationFactor: 2
+    nextAttack: 0
+    nextCheck: 0
   damageType: 0
   meleeDmgData:
     damage: 60
   rangedDmgData:
-    projectile: {fileID: 0}
-    speed: 0
+    fireRate: 0
     damage: 0
-  moveable: 1
-  speed: 1.9
+  unitSpawner: 0
+  startDealay: 0
+  aiSpawner:
+    table: {fileID: 0}
+    minCooldown: 0
+    maxCooldown: 0
+    nextSpawnTime: 0
   animations:
     animations:
     - state: 0
@@ -51,3 +60,4 @@ MonoBehaviour:
       track: 0
       clipsCount: 2
     animator: {fileID: 0}
+    lastClip: 0

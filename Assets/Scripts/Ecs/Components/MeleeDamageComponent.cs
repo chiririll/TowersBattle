@@ -1,10 +1,11 @@
+using System;
+using UnityEngine;
+
 namespace TowersBattle.Ecs
 {
+    [Serializable]
     public struct MeleeDamageComponent
     {
-        public int damage;
-        public float fireRate;
-
-        public float nextAttack;
+        [Min(0)] public int damage;
     }
 }

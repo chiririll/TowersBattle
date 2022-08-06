@@ -1,10 +1,17 @@
+using Leopotam.Ecs;
+using TowersBattle.Data;
+
 namespace TowersBattle.Ecs
 {
-    using Leopotam.Ecs;
-
     public struct HasTargetComponent
     {
-        public EcsEntity target;
-        public UnitState previousState;
+        public UnitState unitPreviousState;
+
+        public UnitType type;
+        public EcsEntity entity;
+
+        public UnitState State {
+            get { return entity.IsAlive() ? entity.Get<UnitStateComponent>().State : UnitState.Destroying; }
+        }
     }
 }

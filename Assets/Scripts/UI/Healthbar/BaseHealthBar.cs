@@ -1,4 +1,4 @@
-using TowersBattle.Ecs;
+using TowersBattle.Data;
 using UnityEngine;
 
 namespace TowersBattle.UI
@@ -30,5 +30,13 @@ namespace TowersBattle.UI
         /// </summary>
         /// <param name="health">Updated health value</param>
         public abstract void UpdateHealth(int health);
+
+        /// <summary>
+        /// Callback method for destroying healthbar
+        /// </summary>
+        public virtual void DestroyHbar()
+        {
+            Destroy(gameObject);
+        }
     }
 }

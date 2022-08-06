@@ -1,9 +1,10 @@
+using Spine.Unity;
+using System;
+using TowersBattle.Data;
+using UnityEngine;
+
 namespace TowersBattle.Ecs
 {
-    using Spine.Unity;
-    using System;
-    using UnityEngine;
-
     [Serializable]
     public struct AnimationComponent
     {
@@ -27,5 +28,6 @@ namespace TowersBattle.Ecs
 
         public Animation[] animations;
         [HideInInspector] public SkeletonAnimation animator;
+        [HideInInspector] public int lastClip;
     }
 }

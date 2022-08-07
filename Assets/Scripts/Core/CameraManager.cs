@@ -8,7 +8,7 @@ namespace TowersBattle.Core
     /// <summary>
     /// TODO
     /// </summary>
-    public class CameraControlller : MonoBehaviour
+    public class CameraManager : MonoBehaviour
     {
         private enum Cam
         {

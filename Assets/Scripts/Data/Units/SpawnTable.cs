@@ -7,7 +7,7 @@ namespace TowersBattle.Data
     {
         public Unit[] units;
 
-        public Unit GetUnit()
+        public Unit GetRandomUnit()
         {
             return units[Random.Range(0, units.Length)];
         }

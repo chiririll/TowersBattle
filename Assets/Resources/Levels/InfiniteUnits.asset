@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916c29844787867488e82e62ffcdd8d4, type: 3}
+  m_Name: InfiniteUnits
+  m_EditorClassIdentifier: 
+  playerUnits: {fileID: 11400000, guid: 5026fac595020c34c8b948b359286ae6, type: 2}
+  enemyWaves: {fileID: 11400000, guid: 40cb2930215ae33478d8a9cbd5bd85fc, type: 2}

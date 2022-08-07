@@ -6,14 +6,17 @@ namespace TowersBattle.Ecs
 {
     public struct UnitComponent
     {
+        // Unit type
         public UnitType type;
 
         // Unity components
         public Transform transform;
         
+        // Offsets
         public Vector3 attackRangeAnchor;
         public Vector3 hitboxAnchor;
 
+        // Team
         private Team team;
         public Team Team
         {

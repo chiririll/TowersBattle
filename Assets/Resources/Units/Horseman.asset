@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b198b13b0fd69d498586e0b220f13ac, type: 3}
+  m_Name: Horseman
+  m_EditorClassIdentifier: 
+  type: 1
+  prefab: {fileID: 5960579631105746453, guid: d6210515e61020d4692c2c10bfb296b9, type: 3}
+  icon: {fileID: 21300000, guid: c628525fa6e95de49805d488a9ef4c34, type: 3}
+  moveable: 1
+  speed: 4
+  maxHP: 150
+  attackData:
+    attackRange: 1.8
+    attackSpeed: 1
+    dominatingTarget: 3
+    dominationFactor: 1.4
+    nextAttack: 0
+    nextCheck: 0
+  damageType: 0
+  meleeDmgData:
+    damage: 40
+  rangedDmgData:
+    fireRate: 0
+    damage: 0
+  unitSpawner: 0
+  startDealay: 0
+  aiSpawner:
+    table: {fileID: 0}
+    minCooldown: 0
+    maxCooldown: 0
+    nextSpawnTime: 0
+  cleanupCorpse: 1
+  animations:
+    animations:
+    - state: 0
+      name: idle
+      loop: 1
+      track: 0
+      clipsCount: 2
+    - state: 1
+      name: run
+      loop: 1
+      track: 1
+      clipsCount: 2
+    - state: 2
+      name: attack
+      loop: 0
+      track: 1
+      clipsCount: 2
+    - state: 3
+      name: death
+      loop: 0
+      track: 0
+      clipsCount: 2
+    animator: {fileID: 0}
+    lastClip: 0

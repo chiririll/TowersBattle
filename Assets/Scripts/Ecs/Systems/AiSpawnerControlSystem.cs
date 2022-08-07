@@ -18,11 +18,12 @@ namespace TowersBattle.Ecs
 
                 if (Time.time < controller.nextSpawnTime)
                     continue;
-
+                
+                /* TODO: refactor
                 controller.nextSpawnTime = Time.time + Random.Range(controller.minCooldown, controller.maxCooldown);
 
                 ref var spawnEvent = ref filter.GetEntity(i).Get<SpawnUnitEvent>();
-                spawnEvent.unit = controller.table.GetUnit();
+                spawnEvent.unit = controller.table.GetRandomUnit();*/
             }
         }
     }

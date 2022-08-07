@@ -16,6 +16,7 @@ namespace TowersBattle.Data
         [Header("Common")]
         public UnitType type;
         public GameObject prefab;
+        public Sprite icon;
         
         [Header("Movement")]
         public bool moveable;
@@ -36,6 +37,7 @@ namespace TowersBattle.Data
         public AiSpawnerControlComponent aiSpawner;
 
         [Header("Graphics")]
+        public bool cleanupCorpse = true;
         public AnimationComponent animations;
     }
 }

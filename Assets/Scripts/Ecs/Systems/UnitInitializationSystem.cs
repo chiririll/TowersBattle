@@ -10,7 +10,7 @@ namespace TowersBattle.Ecs
     public class UnitInitializationSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsWorld ecsWorld;
-        private SceneContext scene;
+        private SceneEntityConvertor scene;
 
         private EcsFilter<UnitInitializationEvent> filter;
 
@@ -20,7 +20,7 @@ namespace TowersBattle.Ecs
             {
                 EcsEntity ent = ecsWorld.NewEntity();
 
-                ConvertGameObject(ref ent, unitData);
+                ConvertGameObject(ref ent, unitData, true);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TowersBattle.Ecs
         /// </summary>
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void ConvertGameObject(ref EcsEntity ent, UnitObjectData unitData)
+        public void ConvertGameObject(ref EcsEntity ent, UnitObjectData unitData, bool isMainUnit = false)
         {
             InitializeUnit(ref ent, ref unitData);
         }
@@ -68,8 +68,12 @@ namespace TowersBattle.Ecs
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unit">Unit settings (ScriptableObject)</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void InitializeUnit(ref EcsEntity ent, ref UnitObjectData unitData)
+        public void InitializeUnit(ref EcsEntity ent, ref UnitObjectData unitData, bool isMainUnit = false)
         {
+            // Main tags
+            if (isMainUnit)
+                InitMainTag(ref ent, unitData.team);
+
             // Core
             InitUninitializedTag(ref ent);
             InitUnitComponent(ref ent, ref unitData);
@@ -81,6 +85,8 @@ namespace TowersBattle.Ecs
             InitAnimationComponent(ref ent, ref unitData);
             if (unitData.healthBar)
                 InitHealthBarComponent(ref ent, ref unitData);
+            if (!unitData.unit.cleanupCorpse)
+                InitDontCleanTag(ref ent);
 
             // FollowSystem
             if (unitData.unit.moveable)
@@ -100,15 +106,23 @@ namespace TowersBattle.Ecs
 
             // Spawner
             if (unitData.unit.unitSpawner)
-            {
-                InitUnitSpawnerComponent(ref ent, ref unitData);
-
-                if (unitData.spawnerAiControllable)
-                    InitAiSpawnerControlComponent(ref ent, ref unitData.unit);
-            }    
+                InitUnitSpawner(ref ent, ref unitData);
 
             // Removing UnitObjectData component
             GameObject.Destroy(unitData);
+        }
+
+        private void InitMainTag(ref EcsEntity ent, Team team)
+        {
+            switch (team)
+            {
+                case Team.Player:
+                    ent.Get<PlayerMainTag>();
+                    break;
+                case Team.Enemy:
+                    ent.Get<EnemyMainTag>();
+                    break;
+            }
         }
 
         private void InitUninitializedTag(ref EcsEntity ent)
@@ -131,10 +145,10 @@ namespace TowersBattle.Ecs
             switch (data.team)
             {
                 case Team.Player:
-                    ent.Get<PlayerTag>();
+                    ent.Get<PlayerMainTag>();
                     break;
                 case Team.Enemy:
-                    ent.Get<EnemyTag>();
+                    ent.Get<EnemyMainTag>();
                     break;
             }
         }
@@ -159,6 +173,11 @@ namespace TowersBattle.Ecs
             follower.path = scene.path.path;
             follower.distance = 0;
             follower.speed = unit.speed;
+        }
+
+        private void InitDontCleanTag(ref EcsEntity ent)
+        {
+            ent.Get<DontCleanTag>();
         }
 
         private void InitHealthComponent(ref EcsEntity ent, ref Unit unit)
@@ -194,17 +213,32 @@ namespace TowersBattle.Ecs
             // TODO
         }
 
-        private void InitUnitSpawnerComponent(ref EcsEntity ent, ref UnitObjectData unitData)
+        private void InitUnitSpawner(ref EcsEntity ent, ref UnitObjectData unitData)
         {
             ref var spawner = ref ent.Get<UnitSpawnerComponent>();
             spawner.spawnPoint = unitData.spawnerPoint;
 
+            switch (unitData.spawnerControlType)
+            {
+                case ControlType.Player:
+                    InitPlayerSpawnerControlComponent(ref ent);
+                    break;
+                case ControlType.AI:
+                    InitAiSpawnerControlComponent(ref ent, ref unitData.unit);
+                    break;
+            }
         }
+
         private void InitAiSpawnerControlComponent(ref EcsEntity ent, ref Unit unit)
         {
             ref var controller = ref ent.Get<AiSpawnerControlComponent>();
             controller = unit.aiSpawner;
             controller.nextSpawnTime = Time.time + unit.startDealay;
+        }
+
+        private void InitPlayerSpawnerControlComponent(ref EcsEntity ent)
+        {
+            ref var controller = ref ent.Get<PlayerControllableComponent>();
         }
     }
 }

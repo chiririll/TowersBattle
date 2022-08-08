@@ -39,5 +39,8 @@ namespace TowersBattle.Data
         [Header("Graphics")]
         public bool cleanupCorpse = true;
         public AnimationComponent animations;
+
+        [Header("Sounds")]
+        public SoundComponent sounds;
     }
 }

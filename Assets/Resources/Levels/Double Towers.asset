@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916c29844787867488e82e62ffcdd8d4, type: 3}
+  m_Name: Double Towers
+  m_EditorClassIdentifier: 
+  playerCooldown:
+    cooldown: 2
+    useRandomCooldown: 0
+    minCooldown: 0
+    maxCooldown: 0
+  playerUnits: {fileID: 11400000, guid: 5026fac595020c34c8b948b359286ae6, type: 2}
+  startDelay: 4
+  enemyWaves: {fileID: 11400000, guid: 226aa354a10ce514fb0604300aab2552, type: 2}
+  levelName: Double Enemies
+  sceneName: 2Towers
+  levelIcon: {fileID: 0}

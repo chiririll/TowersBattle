@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ba103e45b6209439425c40277d8f25, type: 3}
+  m_Name: 2Towers
+  m_EditorClassIdentifier: 
+  interval:
+    cooldown: 0
+    useRandomCooldown: 1
+    minCooldown: 4
+    maxCooldown: 8
+  waves:
+  - cooldown:
+      cooldown: 0
+      useRandomCooldown: 1
+      minCooldown: 2
+      maxCooldown: 6
+    infinite: 0
+    units:
+    - unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+      count: 1
+    - unit: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
+      count: 2
+    - unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+      count: 3
+  - cooldown:
+      cooldown: 0
+      useRandomCooldown: 1
+      minCooldown: 0.7
+      maxCooldown: 1.2
+    infinite: 0
+    units:
+    - unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+      count: 3
+  - cooldown:
+      cooldown: 0
+      useRandomCooldown: 1
+      minCooldown: 0.5
+      maxCooldown: 0.8
+    infinite: 0
+    units:
+    - unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+      count: 10
+  - cooldown:
+      cooldown: 0
+      useRandomCooldown: 1
+      minCooldown: 15
+      maxCooldown: 30
+    infinite: 1
+    units:
+    - unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+      count: 0
+    - unit: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
+      count: 0
+    - unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+      count: 0

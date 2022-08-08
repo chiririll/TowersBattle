@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b4eab457a6770d84d83f50aa0ae11057
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Levels/Level1.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Levels/AutoChaos.unity
+    guid: 8f9ebe8c66117ba47b9ae3996ab0faa4
+  - enabled: 1
+    path: Assets/Scenes/Levels/2Towers.unity
+    guid: 751bddf6bf75e044fbcb0a286fd9c121
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 99159c8ce7a626e4abb5be87dfa389f1, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 754b1de3cc600234cafaee218e61a393, type: 2}

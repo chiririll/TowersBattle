@@ -5,24 +5,20 @@ namespace TowersBattle.Data
     /// <summary>
     /// TODO
     /// </summary>
-    [CreateAssetMenu(fileName = "New Level", menuName = "Levels/Level settings")]
+    [CreateAssetMenu(fileName = "New Level", menuName = "Units/Level settings")]
     public class LevelSettings : ScriptableObject
     {
         [Header("Player settings")]
-        [Min(0)][SerializeField] private float cooldown;
-        [SerializeField] private bool randomCooldown;
-        [Min(0)][SerializeField] public float cooldownMin;
-        [Min(0)][SerializeField] public float cooldownMax;
+        public Cooldown playerCooldown;
         public SpawnTable playerUnits;
 
         [Header("Enemy settings")]
+        [Min(0)] public float startDelay;
         public WavesTable enemyWaves;
 
-        public float GetCooldown()
-        {
-            if (!randomCooldown)
-                return cooldown;
-            return Random.Range(cooldownMin, cooldownMax);
-        }
+        [Header("Display Setting")]
+        public string levelName;
+        public string sceneName;
+        public Sprite levelIcon;
     }
 }

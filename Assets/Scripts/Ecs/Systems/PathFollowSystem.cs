@@ -21,6 +21,13 @@ namespace TowersBattle.Ecs
                 ref var unitState = ref filter.Get2(i);
                 ref var unit = ref filter.Get3(i);
 
+                // Getting nearest point 
+                if (pathFollower.distance == 0)
+                {
+                    float dist = pathFollower.path.GetClosestDistanceAlongPath(unit.transform.position);
+                    pathFollower.distance = unit.Team == Team.Player ? dist : pathFollower.path.length - dist;
+                }
+
                 // Skipping if unit not in running state
                 if (unitState.State != UnitState.Running)
                     continue;

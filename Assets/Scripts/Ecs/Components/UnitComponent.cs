@@ -23,10 +23,12 @@ namespace TowersBattle.Ecs
             get { return team; }
         }
         
-        public void SwapTeam(ref EcsEntity ent, Team team)
+        public void SwapTeam(ref EcsEntity ent, Team team, bool callEvent = true)
         {
-            // TODO: Refactor
             this.team = team;
+
+            if (!callEvent)
+                return;
 
             ref var teamEvent = ref ent.Get<SwapTeamEvent>();
             teamEvent.targetTeam = team;

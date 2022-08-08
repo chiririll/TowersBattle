@@ -16,7 +16,7 @@ namespace TowersBattle.Core
         /// Player sapwn unit callback
         /// </summary>
         /// <param name="unit">Unit, that player wants to spawn</param>
-        /// <param name="cooldown">Next iunit spawn cooldown</param>
+        /// <param name="cooldown">Next iunit spawn interval</param>
         public delegate void PlayerInputSpawnUnitEvent(Unit unit, float cooldown);
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace TowersBattle.Core
             if (nextSpawnTime > Time.time)
                 return;
 
-            nextSpawnTime = Time.time + gameManager.LevelSettings.GetCooldown();
-            PlayerSpawnUnitEvent?.Invoke(unit, gameManager.LevelSettings.GetCooldown());
+            nextSpawnTime = Time.time + gameManager.LevelSettings.playerCooldown.Get();
+            PlayerSpawnUnitEvent?.Invoke(unit, gameManager.LevelSettings.playerCooldown.Get());
         }
     }
 }

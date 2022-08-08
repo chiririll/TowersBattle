@@ -1,10 +1,12 @@
+using Leopotam.Ecs;
+using System;
+using TowersBattle.Core;
+using TowersBattle.Data;
+using TowersBattle.Data.Waves;
+using UnityEngine;
+
 namespace TowersBattle.Ecs
 {
-    using Leopotam.Ecs;
-    using TowersBattle.Core;
-    using TowersBattle.Data;
-    using UnityEngine;
-
     /// <summary>
     /// TODO
     /// </summary>
@@ -59,9 +61,9 @@ namespace TowersBattle.Ecs
         /// </summary>
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void ConvertGameObject(ref EcsEntity ent, UnitObjectData unitData, bool isMainUnit = false)
+        public void ConvertGameObject(ref EcsEntity ent, UnitObjectData unitData, bool fromScene = false)
         {
-            InitializeUnit(ref ent, ref unitData);
+            InitializeUnit(ref ent, ref unitData, fromScene);
         }
 
         /// <summary>
@@ -70,15 +72,15 @@ namespace TowersBattle.Ecs
         /// <param name="ent">Entity to initialize</param>
         /// <param name="unit">Unit settings (ScriptableObject)</param>
         /// <param name="unitData">Unit data component on instantiated object</param>
-        public void InitializeUnit(ref EcsEntity ent, ref UnitObjectData unitData, bool isMainUnit = false)
+        public void InitializeUnit(ref EcsEntity ent, ref UnitObjectData unitData, bool fromScene = false)
         {
             // Main tags
-            if (isMainUnit)
+            if (fromScene)
                 InitMainTag(ref ent, unitData.team);
 
             // Core
             InitUninitializedTag(ref ent);
-            InitUnitComponent(ref ent, ref unitData);
+            InitUnitComponent(ref ent, ref unitData, fromScene);
             InitStateComponent(ref ent, unitData.startingState);
             InitHealthComponent(ref ent, ref unitData.unit);
             InitAttackComponent(ref ent, ref unitData.unit);
@@ -89,6 +91,9 @@ namespace TowersBattle.Ecs
                 InitHealthBarComponent(ref ent, ref unitData);
             if (!unitData.unit.cleanupCorpse)
                 InitDontCleanTag(ref ent);
+
+            // Sounds
+            InitSoundComponent(ref ent, ref unitData);
 
             // FollowSystem
             if (unitData.unit.moveable)
@@ -132,7 +137,7 @@ namespace TowersBattle.Ecs
             ent.Get<UninitializedTag>();
         }
 
-        private void InitUnitComponent(ref EcsEntity ent, ref UnitObjectData data)
+        private void InitUnitComponent(ref EcsEntity ent, ref UnitObjectData data, bool fromScene = false)
         {
             ref var unitComponent = ref ent.Get<UnitComponent>();
             unitComponent.type = data.unit.type;
@@ -141,7 +146,7 @@ namespace TowersBattle.Ecs
             unitComponent.attackRangeAnchor = data.rangeAnchor;
             unitComponent.hitboxAnchor = data.hitboxAnchor;
 
-            unitComponent.SwapTeam(ref ent, data.team);
+            unitComponent.SwapTeam(ref ent, data.team, !fromScene);
             
             // Adding tag
             switch (data.team)
@@ -160,6 +165,16 @@ namespace TowersBattle.Ecs
             ref var animComponent = ref ent.Get<AnimationComponent>();
             animComponent = data.unit.animations;
             animComponent.animator = data.animator;
+        }
+
+        private void InitSoundComponent(ref EcsEntity ent, ref UnitObjectData data)
+        {
+            if (data.soundSource == null)
+                return;
+
+            ref var soundComponent = ref ent.Get<SoundComponent>();
+            soundComponent = data.unit.sounds;
+            soundComponent.soundSource = data.soundSource;
         }
 
         private void InitStateComponent(ref EcsEntity ent, UnitState startingState)
@@ -226,21 +241,26 @@ namespace TowersBattle.Ecs
                     InitPlayerSpawnerControlComponent(ref ent);
                     break;
                 case ControlType.AI:
-                    InitAiSpawnerControlComponent(ref ent, ref unitData.unit);
+                    InitAiSpawnerControlComponent(ref ent);
                     break;
             }
         }
 
-        private void InitAiSpawnerControlComponent(ref EcsEntity ent, ref Unit unit)
+        private void InitAiSpawnerControlComponent(ref EcsEntity ent)
         {
             ref var controller = ref ent.Get<AiSpawnerControlComponent>();
-            
-            controller.table = gameManager.LevelSettings.playerUnits;
-            controller.minCooldown = gameManager.LevelSettings.cooldownMin;
-            controller.maxCooldown = gameManager.LevelSettings.cooldownMax;
 
-            // Adding cooldown
-            controller.nextSpawnTime = Time.time + unit.startDealay;
+            ref var table = ref gameManager.LevelSettings.enemyWaves;
+
+            // Copying waves
+            controller.waves = new Wave[table.waves.Length];
+            for (int i = 0; i < table.waves.Length; i++)
+                controller.waves[i] = new Wave(table.waves[i]);
+
+            controller.interval = table.interval;
+
+            // Adding start cooldown
+            controller.nextActionTime = Time.time + gameManager.LevelSettings.startDelay;
         }
 
         private void InitPlayerSpawnerControlComponent(ref EcsEntity ent)

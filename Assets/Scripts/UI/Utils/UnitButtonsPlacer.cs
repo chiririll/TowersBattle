@@ -23,8 +23,7 @@ namespace TowersBattle.UI
             RectTransform btnRT = btnGO.GetComponent<RectTransform>();
 
             btn.Unit = unit;
-            btnRT.anchoredPosition= new Vector3(btnRT.sizeDelta.x * index + offset * index, btnRT.anchoredPosition.y, btnRT.anchoredPosition.x);
-            
+            btnRT.anchoredPosition = new Vector3(btnRT.sizeDelta.x * index + offset * index, btnRT.anchoredPosition.y, btnRT.anchoredPosition.x);    
         }
 
         private void Start()

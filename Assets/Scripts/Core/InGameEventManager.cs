@@ -15,8 +15,8 @@ namespace TowersBattle.Core
     //    /// Player sapwn unit callback
     //    /// </summary>
     //    /// <param name="unit">Unit, that player wants to spawn</param>
-    //    /// <param name="cooldown">Next iunit spawn cooldown</param>
-    //    public delegate void SpawnUnitEvent(Unit unit, float cooldown);
+    //    /// <param name="interval">Next iunit spawn interval</param>
+    //    public delegate void SpawnUnitEvent(Unit unit, float interval);
 
     //    /// <summary>
     //    /// Event called when player want to spawn unit

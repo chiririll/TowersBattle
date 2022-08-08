@@ -33,8 +33,6 @@ MonoBehaviour:
     damage: 20
   unitSpawner: 1
   startDealay: 3
-  aiSpawner:
-    nextSpawnTime: 0
   cleanupCorpse: 0
   animations:
     animations:
@@ -55,3 +53,10 @@ MonoBehaviour:
       clipsCount: 1
     animator: {fileID: 0}
     lastClip: 0
+  sounds:
+    sounds:
+    - state: 2
+      loop: 0
+      sounds:
+      - {fileID: 8300000, guid: 36668668ffcca1a4ca54b1176db52212, type: 3}
+    soundSource: {fileID: 0}

@@ -19,7 +19,7 @@ namespace TowersBattle.Core
         [Inject] private InputManager inputManager;
 
         [SerializeField] private SpawnTable spawnTable; // TODO: remove
-        [SerializeField] private SceneEntityConvertor sceneContext;
+        [SerializeField] private SceneEntityConvertor sceneEntities;
 
         /// <summary>
         /// Event handler for player spawn unit event
@@ -55,6 +55,7 @@ namespace TowersBattle.Core
                 .Add(new RangedAttackSystem())
                 
                 .Add(new AnimationSystem())
+                .Add(new SoundSystem())
                 .Add(new HealthBarUpdateSystem())
                 
                 .Add(new TestInitSystem());
@@ -71,7 +72,7 @@ namespace TowersBattle.Core
             updateSystems
                 .Inject(gameManager)
                 .Inject(spawnTable)
-                .Inject(sceneContext);
+                .Inject(sceneEntities);
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace TowersBattle.Ecs
         public void Run()
         {
             // Get components
-            // Check cooldown
+            // Check interval
             // Check entity
             // Call event
 
@@ -27,7 +27,7 @@ namespace TowersBattle.Ecs
                 // And entity
                 ref var unitEntity = ref filter.GetEntity(i);
 
-                // If animation cooldown
+                // If animation interval
                 if (!attackComponent.CanCheck())
                     continue;
 
@@ -38,7 +38,7 @@ namespace TowersBattle.Ecs
                     continue;
                 }
 
-                // Skipping entity if cooldown
+                // Skipping entity if interval
                 if (!attackComponent.CanAttack())
                     continue;
 

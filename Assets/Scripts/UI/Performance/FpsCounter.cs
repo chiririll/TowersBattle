@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace TowersBattle
+namespace TowersBattle.UI
 {
     /// <summary>
     /// TODO

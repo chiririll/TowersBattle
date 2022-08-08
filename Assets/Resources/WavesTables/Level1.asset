@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ba103e45b6209439425c40277d8f25, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  interval:
+    cooldown: 10
+    useRandomCooldown: 0
+    minCooldown: 0
+    maxCooldown: 0
+  waves:
+  - cooldown:
+      cooldown: 0.5
+      useRandomCooldown: 0
+      minCooldown: 0
+      maxCooldown: 0
+    units:
+    - unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+      count: 3
+  - cooldown:
+      cooldown: 0
+      useRandomCooldown: 1
+      minCooldown: 3
+      maxCooldown: 5
+    units:
+    - unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+      count: 2
+    - unit: {fileID: 11400000, guid: 3e531bffa41060c419dc0af99c277df6, type: 2}
+      count: 5
+    - unit: {fileID: 11400000, guid: 6ccb7292cc2e3974a9b6385ccb7b15f7, type: 2}
+      count: 3
+  - cooldown:
+      cooldown: 0.2
+      useRandomCooldown: 1
+      minCooldown: 3
+      maxCooldown: 5
+    units:
+    - unit: {fileID: 11400000, guid: 41226ba1f875fac41b718a265d8d4a5a, type: 2}
+      count: 5

@@ -3,7 +3,7 @@ using TowersBattle.Data;
 using UnityEngine;
 using Zenject;
 
-namespace TowersBattle
+namespace TowersBattle.UI
 {
     /// <summary>
     /// TODO

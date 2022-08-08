@@ -22,6 +22,7 @@ namespace TowersBattle.Data
 
         [Header("Component references")]
         public SkeletonAnimation animator;
+        public AudioSource soundSource;
         public BaseHealthBar healthBar;
 
         #if UNITY_EDITOR

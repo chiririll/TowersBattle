@@ -1,18 +1,14 @@
-using System;
 using TowersBattle.Data;
-using UnityEngine;
+using TowersBattle.Data.Waves;
 
 namespace TowersBattle.Ecs
 {
-    [Serializable]
     public struct AiSpawnerControlComponent
     {
-        // TODO: Refactor
-        public SpawnTable table;
+        public Wave[] waves;
+        public Cooldown interval;
 
-        [Min(0)] public float minCooldown;
-        [Min(0)] public float maxCooldown;
-        
-        [HideInInspector] public float nextSpawnTime;
+        public int currentWave;
+        public float nextActionTime;
     }
 }

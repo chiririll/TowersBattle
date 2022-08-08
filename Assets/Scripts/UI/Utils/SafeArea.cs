@@ -7,7 +7,6 @@ namespace TowersBattle.UI
     {
         private void Awake()
         {
-            // Stealed from: https://youtu.be/cyDflP3RqT4
             var rectTransform = GetComponent<RectTransform>();
             var safeArea = Screen.safeArea;
             

@@ -18,7 +18,10 @@ namespace TowersBattle.Core
         [Space(10)]
         [SerializeField] private GameObject gameUI;
         [SerializeField] private GameObject pauseUI;
+        [Space(10)]
         [SerializeField] private GameObject endGameUI;
+        [SerializeField] private GameObject endGameWin;
+        [SerializeField] private GameObject endGameLoose;
 
         private void StateChanged(GameState state, GameState lastState)
         {
@@ -58,7 +61,24 @@ namespace TowersBattle.Core
                     break;
                 case GameState.Victory:
                 case GameState.GameOver:
-                    endGameUI.SetActive(true);
+                    ShowEndGameResult(state);
+                    break;
+            }
+        }
+
+        private void ShowEndGameResult(GameState state)
+        {
+            endGameUI.SetActive(true);
+            endGameWin.SetActive(false);
+            endGameLoose.SetActive(false);
+
+            switch (state)
+            {
+                case GameState.Victory:
+                    endGameWin.SetActive(true);
+                    break;
+                case GameState.GameOver:
+                    endGameLoose.SetActive(true);
                     break;
             }
         }
@@ -81,3 +101,4 @@ namespace TowersBattle.Core
         }
     }
 }
+

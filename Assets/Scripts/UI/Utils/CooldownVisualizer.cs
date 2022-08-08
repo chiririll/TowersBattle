@@ -33,7 +33,7 @@ namespace TowersBattle.UI
                 cooldownBar.fillAmount = remainTime / cooldownTime;
                 
 
-                if (remainTime >= 1)
+                if (remainTime >= 1f)
                     countdown.text = Mathf.Ceil(remainTime).ToString();
                 else
                     countdown.text = remainTime.ToString("F1").Replace(",", ".");

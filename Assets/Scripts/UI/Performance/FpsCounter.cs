@@ -18,7 +18,7 @@ namespace TowersBattle
 
         private void Update()
         {
-            textComponent.text = fpsText.Replace("###", Mathf.Floor(1 / Time.deltaTime).ToString());
+            textComponent.text = fpsText.Replace("###", Mathf.Floor(1 / Time.unscaledDeltaTime).ToString());
         }
     }
 }

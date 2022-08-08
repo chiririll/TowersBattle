@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916c29844787867488e82e62ffcdd8d4, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 3
   randomCooldown: 0
-  cooldownMin: 0
-  cooldownMax: 0
-  playerUnits: {fileID: 0}
+  cooldownMin: 3
+  cooldownMax: 8
+  playerUnits: {fileID: 11400000, guid: 5026fac595020c34c8b948b359286ae6, type: 2}
   enemyWaves: {fileID: 0}

@@ -46,7 +46,8 @@ namespace TowersBattle
             while (true)
             {
                 Vector3 direction = dragOrigin - mainCamera.ScreenToWorldPoint(dragAction.ReadValue<Vector2>());
-                camTarget.position += direction;
+                camTarget.position = new Vector3(camTarget.position.x + direction.x, camTarget.position.y + direction.y, camTarget.position.z);
+                
                 yield return null;
             }
         }

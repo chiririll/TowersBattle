@@ -1,6 +1,7 @@
 namespace TowersBattle.Ecs
 {
     using Leopotam.Ecs;
+    using TowersBattle.Core;
     using TowersBattle.Data;
     using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace TowersBattle.Ecs
     {
         private EcsWorld ecsWorld;
         private SceneEntityConvertor scene;
+        private GameManager gameManager;
 
         private EcsFilter<UnitInitializationEvent> filter;
 
@@ -232,7 +234,12 @@ namespace TowersBattle.Ecs
         private void InitAiSpawnerControlComponent(ref EcsEntity ent, ref Unit unit)
         {
             ref var controller = ref ent.Get<AiSpawnerControlComponent>();
-            controller = unit.aiSpawner;
+            
+            controller.table = gameManager.LevelSettings.playerUnits;
+            controller.minCooldown = gameManager.LevelSettings.cooldownMin;
+            controller.maxCooldown = gameManager.LevelSettings.cooldownMax;
+
+            // Adding cooldown
             controller.nextSpawnTime = Time.time + unit.startDealay;
         }
 

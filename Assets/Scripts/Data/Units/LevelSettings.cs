@@ -11,8 +11,8 @@ namespace TowersBattle.Data
         [Header("Player settings")]
         [Min(0)][SerializeField] private float cooldown;
         [SerializeField] private bool randomCooldown;
-        [Min(0)][SerializeField] private float cooldownMin;
-        [Min(0)][SerializeField] private float cooldownMax;
+        [Min(0)][SerializeField] public float cooldownMin;
+        [Min(0)][SerializeField] public float cooldownMax;
         public SpawnTable playerUnits;
 
         [Header("Enemy settings")]

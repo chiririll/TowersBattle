@@ -58,3 +58,10 @@ MonoBehaviour:
       clipsCount: 2
     animator: {fileID: 0}
     lastClip: 0
+  sounds:
+    sounds:
+    - state: 3
+      loop: 0
+      sounds:
+      - {fileID: 8300000, guid: 347162d3f29977245ad5f15e2e0fb347, type: 3}
+    soundSource: {fileID: 0}

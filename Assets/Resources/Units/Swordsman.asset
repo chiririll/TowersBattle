@@ -64,4 +64,8 @@ MonoBehaviour:
       loop: 0
       sounds:
       - {fileID: 8300000, guid: 91defe6091a42f945b7da0b5cd25ffcc, type: 3}
+    - state: 3
+      loop: 0
+      sounds:
+      - {fileID: 8300000, guid: 347162d3f29977245ad5f15e2e0fb347, type: 3}
     soundSource: {fileID: 0}

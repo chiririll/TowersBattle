@@ -28,6 +28,9 @@ namespace TowersBattle.UI
 
         private void Start()
         {
+            if (gameManager.LevelSettings.playerUnits == null)
+                return;
+
             int index = 0;
             foreach (Unit unit in gameManager.LevelSettings.playerUnits.units)
             {
